@@ -85,15 +85,27 @@ ggplot(data = gm2004,
 You can also try to add other Constant-Valued Aesthetics to both geoms to change their appearances. 
 
 ```{r, warning = FALSE}
-ggplot(data = gm2004, 
-       aes(x = continent, 
-           y = cholesterol, 
-           color = continent)) + 
+ggplot(data = gm2004,
+       aes(x = continent,
+           y = cholesterol,
+           color = continent)) +
   geom_violin(color = "violet",
               size = 2) +
   geom_boxplot(width = 0.1,
                color = "blue",
-               size = 1) + 
+               size = 1) +
   scale_x_discrete(limits=c("Africa", "Americas", "Asia"))
 ```
+
+In this section, we introduced the violin plot, which combines the density plot and boxplot into a single visualization. By layering `geom_violin()` and `geom_boxplot()`, you can simultaneously see the distribution shape and summary statistics. When comparing groups with a third variable, remember to use `position = position_dodge(0.9)` to properly align the plots.
+
+### Exercises
+
+1. Using the `sahp` dataset from the **r02pro** package, create a violin plot for `sale_price` grouped by `house_style`, restricting to `"1Story"` and `"2Story"`. Add a boxplot inside with `width = 0.1`.
+
+2. Using the `gm2004` dataset, create a violin plot for `BMI` grouped by `continent`. Map `continent` to the `fill` aesthetic and add a boxplot inside with `width = 0.1` and `position = position_dodge(0.9)`.
+
+3. Modify your plot from Exercise 2 to only include `"Europe"` and `"Asia"`, and further group by `gender` using the `fill` aesthetic. Make sure both the violin and boxplot use `position = position_dodge(0.9)`.
+
+4. Create a violin plot for `cholesterol` in the `gm2004` dataset. Customize the violin with `color = "darkgreen"` and `size = 1.5`, and add a boxplot with `color = "red"` and `width = 0.1`.
 

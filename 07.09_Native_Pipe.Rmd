@@ -1,0 +1,69 @@
+## The Native Pipe Operator {#native-pipe}
+
+In Section \@ref(filter-observations), we introduced the pipe operator `%>%` from the **magrittr** package (loaded automatically with the tidyverse). Starting from **R version 4.1.0** (released in 2021), R includes a built-in **native pipe operator** `|>` that works without loading any packages.
+
+### Syntax Comparison
+
+Both pipe operators take the result of the expression on the left and pass it as the **first argument** to the function on the right.
+
+```{r, results=TRUE}
+library(r02pro)
+library(dplyr)
+
+# Using the magrittr pipe
+sahp %>%
+  filter(house_style == "2Story") %>%
+  summarize(avg_price = mean(sale_price))
+
+# Using the native pipe
+sahp |>
+  filter(house_style == "2Story") |>
+  summarize(avg_price = mean(sale_price))
+```
+
+As you can see, they produce exactly the same result.
+
+### Key Differences
+
+While the two pipe operators behave similarly in most cases, there are a few important differences:
+
+1. **No placeholder**: The `%>%` pipe supports `.` as a placeholder to insert the left-hand side into a position other than the first argument. The native pipe `|>` does not support a placeholder in the same way. Instead, you can use an anonymous function.
+
+```{r, results=TRUE}
+# magrittr pipe with placeholder
+c(3, 1, 2) %>% paste("Item", .)
+
+# native pipe with anonymous function
+c(3, 1, 2) |> (\(x) paste("Item", x))()
+```
+
+2. **No package needed**: The native pipe `|>` is built into R, so you don't need to load any package to use it.
+
+3. **Speed**: The native pipe is slightly faster since it is implemented at the language level rather than as a function call.
+
+### Which One Should You Use?
+
+Both pipes are widely used in the R community. Here are some guidelines:
+
+- If you are writing a **tidyverse-heavy** script and already loading **dplyr** or **magrittr**, either pipe works well.
+- If you want to **minimize package dependencies**, use the native pipe `|>`.
+- If you need the **placeholder** feature frequently, `%>%` may be more convenient.
+- In this book, we primarily use `%>%` for consistency with existing examples, but you are encouraged to try `|>` in your own work.
+
+### Exercises
+
+1. Rewrite the following code using the native pipe `|>` instead of `%>%`:
+```{r, eval = FALSE}
+sahp %>%
+  filter(oa_qual > 5) %>%
+  select(sale_price, liv_area) %>%
+  arrange(desc(sale_price)) %>%
+  head(10)
+```
+
+2. Using the `gm2004` dataset, write a pipeline with the native pipe `|>` that filters for countries in `"Europe"`, selects `country` and `life_expectancy`, and arranges by `life_expectancy` in descending order.
+
+3. Explain why the following code using the native pipe does not work, and rewrite it so that it does:
+```{r, eval = FALSE}
+c(1, 5, 3, 2, 4) |> sort() |> paste("Value:", .)
+```

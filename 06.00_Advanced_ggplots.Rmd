@@ -1,0 +1,17 @@
+# Advanced Data Visualization {#adv-visual}
+
+::: {.objectives}
+**Learning Objectives**
+
+After completing this chapter, you will be able to:
+
+- Create jitter plots, count plots, and violin plots for comparing distributions
+- Add line segments and auxiliary lines to existing plots
+- Build heat maps using both base R and **ggplot2**
+- Visualize uncertainty with error bar plots
+- Convert static plots into interactive visualizations with **plotly**
+:::
+
+In Chapter \@ref(data-visualization), we introduced the most commonly used plots. If you skipped the previous chapter, it may be worthwhile to briefly review Section \@ref(review-basic-visualization).
+
+In this chapter, we will introduce more types of plots and various customization.

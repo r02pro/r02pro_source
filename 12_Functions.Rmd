@@ -1,3 +1,14 @@
 # Functions {#functions}
 
+::: {.objectives}
+**Learning Objectives**
+
+After completing this chapter, you will be able to:
+
+- Define custom functions with arguments and default values
+- Understand variable scoping and how R searches for variables
+- Write anonymous functions for concise, one-off operations
+- Use `...` (dot-dot-dot) to pass additional arguments flexibly
+:::
+
 In theory, you can already write very complicated codes, accomplishing a lot of data analysis tasks. In this chapter, you will learn a very powerful tool, **functions**.

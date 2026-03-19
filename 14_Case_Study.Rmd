@@ -1,5 +1,15 @@
 # A Case Study: 24 Game Solver {#case-study}
 
+::: {.objectives}
+**Learning Objectives**
+
+After completing this chapter, you will be able to:
+
+- Decompose a complex problem into smaller, manageable sub-functions
+- Apply permutations and combinations to enumerate possibilities systematically
+- Integrate control statements, functions, and string operations into a complete program
+:::
+
 In this final chapter, we will build a 24 Game Solver. The [24 Game](https://en.wikipedia.org/wiki/24_Game) is an arithmetical card game in which the objective is to find a way to manipulate four integers, so that the end result is 24. 
 
 In a classic game, the four integers come from a deck of cards (with all the face cards removed). As a result, the 4 integers range from 1 to 10. The allowed operations are addition, subtraction, multiplication, division, and parentheses. All 4 integers have to be used and only be used once. 

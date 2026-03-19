@@ -1,5 +1,17 @@
 # Data Manipulation {#data-manipulation}
 
+::: {.objectives}
+**Learning Objectives**
+
+After completing this chapter, you will be able to:
+
+- Filter observations and select variables using **dplyr** verbs
+- Reorder rows and create new variables with `arrange()` and `mutate()`
+- Compute grouped summaries with `group_by()` and `summarize()`
+- Join multiple datasets together using various join operations
+- Use the pipe operator `%>%` to chain operations fluently
+:::
+
 For conducting data analysis, we often need to conduct various kinds of data manipulation. We will use the `gm` data set in the **r02pro** package throughout this chapter. Let's first look at the data set.
 
 ```{r}

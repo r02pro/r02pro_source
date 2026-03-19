@@ -1,4 +1,15 @@
 # Data Import and Export {#import-export}
 
-So far in this book, you have been creating objects by yourself. When working on real projects, you often need to **import** existing data into R, or **export** the created objects or analysis results into a file on the computer. In this chapter, you will learn how to import and export data of different file types. 
+::: {.objectives}
+**Learning Objectives**
+
+After completing this chapter, you will be able to:
+
+- Explore and summarize datasets using `head()`, `summary()`, and `str()`
+- Export data to CSV, Excel, and other delimited file formats
+- Import data from CSV, Excel, SPSS, SAS, and Stata files
+- Save and restore R objects and workspaces using `save()` and `load()`
+:::
+
+So far in this book, you have been creating objects by yourself. When working on real projects, you often need to **import** existing data into R, or **export** the created objects or analysis results into a file on the computer. In this chapter, you will learn how to import and export data of different file types.
 

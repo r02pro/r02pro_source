@@ -95,4 +95,14 @@ gm_tidy2 %>%
   fill(life_expectancy, .direction = "downup")
 ```
 
-In the downward pass, we fill in the `life_expectancy` value for China in 2005 with the value for 2004. Then in the upward pass, we fill in the `life_expectancy` value for United States with the value for 2005. 
+In the downward pass, we fill in the `life_expectancy` value for China in 2005 with the value for 2004. Then in the upward pass, we fill in the `life_expectancy` value for United States with the value for 2005.
+
+### Exercises
+
+1. Using the `gm` dataset from the **r02pro** package, create a subset with `country` in `c("Brazil", "India", "Japan")`, `year` between 2002 and 2005, and the variable `life_expectancy`. Remove the 2nd and 5th rows. Convert it to wide format using `pivot_wider()` and observe where `NA` values appear.
+
+2. Using the dataset from Exercise 1, convert it back to long format with `pivot_longer()` and fill the missing values with the overall mean of `life_expectancy`.
+
+3. Using the same long-format dataset from Exercise 2, fill the missing values using `fill()` with `.direction = "downup"`, grouped by `country`. Compare your results with those from Exercise 2.
+
+4. Create a small tibble with some `NA` values and use `replace_na()` to replace them with a value of your choice. Verify the result.

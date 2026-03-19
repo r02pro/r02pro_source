@@ -1,0 +1,87 @@
+## Advanced Code Chunks and Output {#rmd-advanced-chunks}
+
+In Section \@ref(intro-r-markdown), we introduced the basics of code chunks and a few commonly used chunk options. In this section, we explore more advanced chunk options and techniques for controlling how your code and its output appear in the final document.
+
+### Figure Options
+
+When a code chunk produces a plot, you can control its appearance with several chunk options.
+
+- `fig.width` and `fig.height`: Set the dimensions of the plot in inches.
+- `fig.cap`: Add a caption to the figure.
+- `fig.align`: Align the figure (`"left"`, `"center"`, or `"right"`).
+- `out.width` and `out.height`: Control the display size in the output document (e.g., `"80%"` or `"400px"`).
+
+Here is an example:
+
+````markdown
+`r ''````{r my-plot, fig.width=8, fig.height=5, fig.cap="Scatterplot of sale price vs. living area", fig.align="center", out.width="80%"}
+library(r02pro)
+library(ggplot2)
+ggplot(sahp, aes(x = liv_area, y = sale_price)) +
+  geom_point()
+```
+````
+
+When you provide `fig.cap`, the figure is automatically numbered and can be cross-referenced with `\@ref(fig:my-plot)` in bookdown.
+
+### Caching
+
+For code chunks that take a long time to run (e.g., fitting complex models or processing large datasets), you can use **caching** to save the results so they are not recomputed every time you knit.
+
+````markdown
+`r ''````{r slow-computation, cache=TRUE}
+# This chunk will only run once; results are cached
+result <- replicate(10000, mean(rnorm(1000)))
+```
+````
+
+Be cautious with caching: if the data or code that a cached chunk depends on changes, the cached result may be stale. You can use `cache.extra` or `dependson` options to manage dependencies.
+
+### Controlling Output
+
+You can fine-tune what appears in the knitted document:
+
+| Option | Effect |
+|--------|--------|
+| `results = "hide"` | Run the code but hide text output |
+| `results = "hold"` | Hold all output until the end of the chunk |
+| `results = "asis"` | Treat output as raw Markdown (useful for tables) |
+| `collapse = TRUE` | Merge code and output into a single block |
+| `tidy = TRUE` | Reformat code for consistent style |
+
+### Inline Code Revisited
+
+Recall from Section \@ref(rmd-text-formatting) that you can embed R expressions directly in your text. This is especially powerful for dynamic reports.
+
+For example, you might write:
+
+> The `sahp` dataset contains `` `r knitr::inline_expr('nrow(sahp)')` `` observations and `` `r knitr::inline_expr('ncol(sahp)')` `` variables.
+
+This renders as: "The `sahp` dataset contains 165 observations and 12 variables." The numbers update automatically if the data changes.
+
+### Setting Chunk Options for the Whole Document
+
+In addition to the global chunk options introduced in Section \@ref(intro-r-markdown), you can use the `knitr::opts_chunk$set()` function to configure many options at once.
+
+```{r, eval=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5,
+  fig.align = "center"
+)
+```
+
+Individual chunks can still override these global settings as needed.
+
+### Exercises
+
+1. Create an R Markdown document that produces a scatterplot with a caption. Use `fig.cap`, `fig.width = 8`, and `fig.align = "center"`.
+
+2. Write a code chunk that simulates drawing 100,000 random numbers from a normal distribution and computing their mean. Enable caching with `cache = TRUE`. Knit the document twice and observe the speed difference.
+
+3. Create a code chunk that produces a formatted table using `knitr::kable()` with `results = "asis"`. Verify that the table renders correctly in the knitted output.
+
+4. Write a paragraph that uses inline R code to report the mean and standard deviation of `sale_price` from the `sahp` dataset. The numbers should update automatically if the data changes.

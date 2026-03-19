@@ -1,0 +1,98 @@
+## Linear Regression {#linear-regression}
+
+In this section, we introduce **linear regression**, one of the most widely used statistical models. Linear regression allows us to model the relationship between a continuous response variable and one or more predictor variables.
+
+### Simple Linear Regression
+
+A simple linear regression models the relationship between a response variable $y$ and a single predictor variable $x$ as:
+$$y = \beta_0 + \beta_1 x + \epsilon,$$
+where $\beta_0$ is the intercept, $\beta_1$ is the slope, and $\epsilon$ is the error term.
+
+In R, we use the `lm()` function (short for "linear model") to fit a regression. The syntax uses a **formula**: `y ~ x`.
+
+```{r, results=TRUE}
+library(r02pro)
+model <- lm(sale_price ~ liv_area, data = sahp)
+summary(model)
+```
+
+The `summary()` output includes:
+
+- **Coefficients**: the estimated intercept ($\hat\beta_0$) and slope ($\hat\beta_1$), along with their standard errors, t-values, and p-values.
+- **R-squared**: the proportion of variance in the response explained by the predictor. A value closer to 1 indicates a better fit.
+- **F-statistic**: tests whether the overall model is statistically significant.
+
+In this example, the slope for `liv_area` tells us the estimated change in `sale_price` for each additional unit increase in living area.
+
+### Visualizing the Regression Line
+
+You can easily overlay the regression line on a scatterplot using `geom_smooth()` in **ggplot2**.
+
+```{r, results=TRUE}
+library(ggplot2)
+ggplot(sahp, aes(x = liv_area, y = sale_price)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  labs(title = "Sale Price vs. Living Area",
+       x = "Living Area (sq ft)",
+       y = "Sale Price (thousands)")
+```
+
+The shaded region around the line represents the 95% confidence interval for the regression line.
+
+### Multiple Linear Regression
+
+You can include multiple predictors by adding them to the formula with `+`.
+
+```{r, results=TRUE}
+model_multi <- lm(sale_price ~ liv_area + lot_area + oa_qual, data = sahp)
+summary(model_multi)
+```
+
+Each coefficient represents the estimated effect of that predictor while holding the other predictors constant.
+
+### Extracting Model Information
+
+R provides several useful functions to extract information from a fitted model.
+
+```{r, results=TRUE}
+# Fitted (predicted) values
+head(fitted(model))
+
+# Residuals (observed - fitted)
+head(residuals(model))
+
+# Coefficients
+coef(model)
+
+# Confidence intervals for coefficients
+confint(model)
+```
+
+### Diagnostic Plots
+
+Checking model assumptions is an important step in regression analysis. R provides built-in diagnostic plots.
+
+```{r, results=TRUE, fig.width=7, fig.height=6}
+par(mfrow = c(2, 2))
+plot(model)
+```
+
+These four plots help you check:
+
+1. **Residuals vs Fitted**: linearity and homoscedasticity (constant variance)
+2. **Normal Q-Q**: normality of residuals
+3. **Scale-Location**: another view of homoscedasticity
+4. **Residuals vs Leverage**: influential observations
+
+### Exercises
+
+1. Using the `sahp` dataset, fit a simple linear regression of `sale_price` on `lot_area`. Interpret the estimated slope coefficient.
+
+2. Using the `gm2004` dataset from the **r02pro** package, fit a simple linear regression of `life_expectancy` on `GDP_per_capita`. What is the R-squared value? What does it tell you?
+
+3. Create a scatterplot of `life_expectancy` vs. `GDP_per_capita` from Exercise 2 and overlay the regression line using `geom_smooth(method = "lm")`.
+
+4. Fit a multiple linear regression of `sale_price` on `liv_area`, `lot_area`, `oa_qual`, and `yr_built` using the `sahp` dataset. Which predictors are statistically significant at the 0.05 level?
+
+5. For the model in Exercise 4, generate the four diagnostic plots using `plot()`. Do you see any violations of the model assumptions?

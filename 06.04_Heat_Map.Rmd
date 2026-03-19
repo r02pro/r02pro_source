@@ -53,7 +53,7 @@ heatmap(sgm2004_mat,
 
 ### Using `geom_tile()` in **ggplot2**
 
-In the **ggplot2** packages, there is no geom that directly generates a heatmap, however, we can use the `geom_tile()` on a transformed data format using `pivot_longer()`, which will be introduced in Chapter ??. 
+In the **ggplot2** packages, there is no geom that directly generates a heatmap, however, we can use the `geom_tile()` on a transformed data format using `pivot_longer()`, which will be introduced in Section \@ref(tidy-name-value). 
 
 ```{r}
 sgm2004_long <- sgm2004 %>%
@@ -82,10 +82,22 @@ Now, the heatmap looks more informative that shows the relative magnitude across
 Like in Section \@ref(aes-local-map), you can customize the range of the tile colors by specifying the `low` and `high` parameters in the `scale_fill_gradient()` function. 
 ```{r}
 ggplot(sgm2004_long) +
-  geom_tile(mapping = aes(x = country, 
+  geom_tile(mapping = aes(x = country,
                           y = Var,
-                          fill = std_value)) + 
-  scale_fill_gradient(low = "green", 
+                          fill = std_value)) +
+  scale_fill_gradient(low = "green",
                       high = "red")
 ```
+
+In this section, we introduced two approaches to creating heat maps: the base R `heatmap()` function and the `geom_tile()` function in **ggplot2**. Both approaches require careful attention to scaling, since variables measured in different units can dominate the color mapping. The `heatmap()` function also provides built-in clustering and dendrogram visualization.
+
+### Exercises
+
+1. Using the `gm2004` dataset from the **r02pro** package, create a subset with 4 countries of your choice. Select the variables `country`, `BMI`, `cholesterol`, and `life_expectancy`. Create a heatmap using the `heatmap()` function with `scale = "column"`.
+
+2. Using the same subset from Exercise 1, create a heatmap using `geom_tile()` in **ggplot2**. Remember to first transform the data using `pivot_longer()` and scale the values using `scale()` within each variable.
+
+3. Customize the heatmap from Exercise 2 by changing the color gradient to go from `"white"` to `"darkblue"` using `scale_fill_gradient()`.
+
+4. Create a heatmap using `heatmap()` on the same data, but turn off both row and column dendrograms using `Rowv = NA` and `Colv = NA`.
 

@@ -1,0 +1,140 @@
+## Error Handling and Debugging {#error-handling}
+
+When writing R code, you will inevitably encounter errors, warnings, and unexpected behavior. In this section, you will learn how to handle these situations gracefully and debug your code effectively.
+
+### Errors, Warnings, and Messages
+
+R has three types of signals that communicate different levels of severity:
+
+- **Errors** (produced by `stop()`): The code cannot continue. Execution halts immediately.
+- **Warnings** (produced by `warning()`): Something unexpected happened, but the code can still continue.
+- **Messages** (produced by `message()`): Informational output that does not indicate a problem.
+
+```{r, results=TRUE, error=TRUE}
+log(-1)        # produces a warning
+log("abc")     # produces an error
+message("This is an informational message.")
+```
+
+### Generating Custom Errors and Warnings
+
+When writing your own functions, you should signal problems clearly to the user.
+
+```{r, results=TRUE, error=TRUE}
+safe_divide <- function(x, y) {
+  if (y == 0) {
+    stop("Division by zero is not allowed.")
+  }
+  if (x == 0) {
+    warning("Numerator is zero; result will be zero.")
+  }
+  x / y
+}
+safe_divide(10, 2)
+safe_divide(0, 5)
+safe_divide(10, 0)
+```
+
+### Handling Errors with `try()` and `tryCatch()`
+
+#### `try()`: Keep Going After an Error
+
+The `try()` function wraps an expression so that if it produces an error, execution continues instead of stopping.
+
+```{r, results=TRUE}
+result <- try(log("abc"), silent = TRUE)
+class(result)
+```
+
+When `silent = TRUE`, the error message is suppressed. You can check whether an error occurred using `inherits(result, "try-error")`.
+
+```{r, results=TRUE}
+if (inherits(result, "try-error")) {
+  cat("An error occurred, using a default value instead.\n")
+  result <- NA
+}
+result
+```
+
+#### `tryCatch()`: Fine-Grained Error Handling
+
+The `tryCatch()` function provides more control by letting you specify handlers for different types of conditions.
+
+```{r, results=TRUE}
+safe_log <- function(x) {
+  tryCatch(
+    log(x),
+    warning = function(w) {
+      message("Warning caught: ", conditionMessage(w))
+      NA
+    },
+    error = function(e) {
+      message("Error caught: ", conditionMessage(e))
+      NA
+    }
+  )
+}
+safe_log(10)
+safe_log(-1)
+safe_log("abc")
+```
+
+A practical use case is applying a function to a list of inputs where some might cause errors:
+
+```{r, results=TRUE}
+inputs <- list(4, -1, "hello", 100)
+results <- sapply(inputs, safe_log)
+results
+```
+
+### Debugging Tools
+
+When your code produces unexpected results but no error, you need to investigate. R provides several debugging tools.
+
+#### `traceback()`: Find Where an Error Occurred
+
+After an error, calling `traceback()` shows the sequence of function calls that led to the error.
+
+```{r, eval=FALSE}
+f <- function(x) g(x)
+g <- function(x) h(x)
+h <- function(x) log(x)
+f("abc")
+traceback()
+```
+
+#### `browser()`: Pause and Inspect
+
+Inserting `browser()` inside a function pauses execution at that point and opens an interactive debugging session where you can inspect variables.
+
+```{r, eval=FALSE}
+my_function <- function(x) {
+  y <- x^2
+  browser()  # execution pauses here
+  z <- y + 1
+  z
+}
+my_function(5)
+```
+
+In the debugging session, you can type variable names to see their values, `n` to step to the next line, `c` to continue, or `Q` to quit.
+
+#### `debug()` and `undebug()`
+
+You can also set a function to be debugged without modifying its source code:
+
+```{r, eval=FALSE}
+debug(my_function)
+my_function(5)      # will enter browser mode automatically
+undebug(my_function) # stop debugging
+```
+
+### Exercises
+
+1. Write a function `safe_sqrt(x)` that uses `tryCatch()` to return `NA` when the input is negative (instead of producing a warning) and when the input is not numeric (instead of producing an error). Test it with `safe_sqrt(9)`, `safe_sqrt(-4)`, and `safe_sqrt("hello")`.
+
+2. Given a list of file paths `files <- c("data/file1.csv", "data/file2.csv", "data/nonexistent.csv")`, write code using `try()` inside a `for` loop that attempts to read each file with `read.csv()` and prints a message for files that cannot be read. (You do not need actual files; just observe the error handling.)
+
+3. Write a function `divide_all(x, y)` that divides each element of vector `x` by the corresponding element of vector `y`. Use `tryCatch()` to handle cases where `y` contains zeros, returning `Inf` for those positions instead of an error.
+
+4. Use `browser()` inside a simple function to practice stepping through code. Write a function that computes the cumulative sum of a vector using a `for` loop, and use `browser()` to inspect the intermediate values.

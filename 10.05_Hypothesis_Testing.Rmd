@@ -1,0 +1,93 @@
+## Hypothesis Testing {#hypothesis-testing}
+
+In this section, we introduce the basics of hypothesis testing in R. Hypothesis testing is a fundamental tool in statistics that allows us to make inferences about population parameters based on sample data.
+
+### The t-test
+
+The **t-test** is used to test whether the mean of a population (or the difference between two population means) equals a specified value. R provides the `t.test()` function for this purpose.
+
+#### One-sample t-test
+
+Suppose we want to test whether the average sale price of houses in the `sahp` dataset is different from \$200,000 (i.e., 200 in the unit of thousands).
+
+```{r, results=TRUE}
+library(r02pro)
+t.test(sahp$sale_price, mu = 200)
+```
+
+The output includes:
+
+- **t**: the test statistic
+- **df**: degrees of freedom
+- **p-value**: the probability of observing a test statistic as extreme as the one computed, assuming the null hypothesis is true
+- **95 percent confidence interval**: a range of plausible values for the true mean
+- **sample estimates**: the sample mean
+
+If the p-value is less than our significance level (commonly 0.05), we reject the null hypothesis.
+
+#### Two-sample t-test
+
+We can also compare the means of two groups. Let's test whether one-story and two-story houses have different average sale prices.
+
+```{r, results=TRUE}
+price_1story <- sahp$sale_price[sahp$house_style == "1Story"]
+price_2story <- sahp$sale_price[sahp$house_style == "2Story"]
+t.test(price_1story, price_2story)
+```
+
+By default, `t.test()` performs a **Welch two-sample t-test**, which does not assume equal variances. To assume equal variances, set `var.equal = TRUE`.
+
+```{r, results=TRUE}
+t.test(price_1story, price_2story, var.equal = TRUE)
+```
+
+#### Paired t-test
+
+A **paired t-test** is used when observations come in pairs (e.g., before/after measurements). You can specify `paired = TRUE` in `t.test()`.
+
+### The Chi-Squared Test
+
+The **chi-squared test** is used to test the association between two categorical variables. R provides `chisq.test()` for this purpose.
+
+Let's test whether kitchen quality (`kit_qual`) and house style (`house_style`) are independent in the `sahp` dataset.
+
+```{r, results=TRUE}
+# Create a contingency table
+quality_table <- table(sahp$kit_qual, sahp$house_style)
+quality_table
+
+# Perform chi-squared test
+chisq.test(quality_table)
+```
+
+A small p-value suggests that the two variables are not independent.
+
+### The Correlation Test
+
+To test whether the correlation between two numeric variables is significantly different from zero, use `cor.test()`.
+
+```{r, results=TRUE}
+cor.test(sahp$liv_area, sahp$sale_price)
+```
+
+The output shows the estimated correlation, the test statistic, and the p-value.
+
+### Interpreting Results
+
+When interpreting hypothesis test results, keep these points in mind:
+
+1. A **small p-value** (typically < 0.05) provides evidence against the null hypothesis, but does not prove that the alternative is true.
+2. **Statistical significance** does not imply **practical significance**. A very large sample can make tiny differences statistically significant.
+3. The **confidence interval** provides more information than the p-value alone, as it shows the range of plausible values for the parameter.
+
+### Exercises
+
+1. Using the `gm2004` dataset from the **r02pro** package, perform a one-sample t-test to test whether the average `life_expectancy` across all countries is different from 70. What do you conclude at the 0.05 significance level?
+
+2. Using the `gm2004` dataset, perform a two-sample t-test to compare the average `cholesterol` between `"male"` and `"female"` groups (the `gender` variable). Is there a statistically significant difference?
+
+3. Create a contingency table of `continent` and `gender` from the `gm2004` dataset. Perform a chi-squared test to determine whether continent and gender are independent.
+
+4. Test whether the correlation between `BMI` and `cholesterol` in the `gm2004` dataset is statistically significant. Report the estimated correlation and the p-value.
+
+5. Using the `sahp` dataset, test whether houses with central air conditioning (`central_air == "Y"`) have a significantly higher average `sale_price` than those without. Use a two-sample t-test with `var.equal = FALSE`.

@@ -1,5 +1,16 @@
 # Statistics {#statistics}
 
+::: {.objectives}
+**Learning Objectives**
+
+After completing this chapter, you will be able to:
+
+- Compute probabilities, quantiles, and random samples from the normal distribution
+- Work with other common distributions (t, chi-squared, uniform, binomial, Poisson)
+- Generate random permutations and samples using `sample()`
+- Simulate and visualize multivariate normal data
+:::
+
 In this chapter, you will dive into the world of statistics. As a language initially designed for statistical computing, R undoubtedly provides a wide range of functions related to all aspects of probability and statistics. You will start with functions related to normal distribution in Section \@ref(normal-distribution). 
 
 

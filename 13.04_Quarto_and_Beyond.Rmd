@@ -1,0 +1,72 @@
+## Quarto and Beyond {#quarto}
+
+R Markdown has been the standard tool for reproducible documents in R for over a decade. In recent years, **Quarto** has emerged as the next generation of scientific and technical publishing, developed by the same team at Posit (formerly RStudio).
+
+### What is Quarto?
+
+Quarto is an open-source publishing system that builds on the ideas of R Markdown but extends them in several important ways:
+
+- **Multi-language support**: Quarto natively supports R, Python, Julia, and Observable JavaScript in the same document.
+- **Unified format**: Quarto uses `.qmd` files with a syntax very similar to `.Rmd` files, so the transition is smooth.
+- **Rich output formats**: Quarto can produce HTML pages, PDFs, Word documents, presentations (RevealJS), books, websites, and blogs.
+- **No R required**: Unlike R Markdown (which depends on the **knitr** and **rmarkdown** R packages), Quarto can run independently of R.
+
+### From R Markdown to Quarto
+
+If you know R Markdown, you already know most of Quarto. Here is a side-by-side comparison:
+
+| Feature | R Markdown (`.Rmd`) | Quarto (`.qmd`) |
+|---------|---------------------|------------------|
+| YAML header | `output: html_document` | `format: html` |
+| Code chunks | `` ```{r} `` | `` ```{r} `` (same!) |
+| Chunk options | Inside `{r, echo=FALSE}` | `#| echo: false` (YAML-style) |
+| Cross-references | `\@ref(fig:label)` | `@fig-label` |
+| Rendering | `rmarkdown::render()` | `quarto render` (CLI) |
+
+A simple Quarto document looks like this:
+
+````markdown
+---
+title: "My First Quarto Document"
+format: html
+---
+
+## Introduction
+
+This is a Quarto document. Here is some R code:
+
+```{r}
+#| echo: true
+#| fig-cap: "A simple plot"
+plot(1:10, (1:10)^2)
+```
+````
+
+### Installing Quarto
+
+Quarto is a standalone application. You can download it from <https://quarto.org/docs/get-started/>. Once installed, you can render `.qmd` files from the terminal:
+
+```{bash, eval=FALSE}
+quarto render my_document.qmd
+```
+
+RStudio (version 2022.07 and later) has built-in support for Quarto, so you can also use the **Render** button just like you would use the **Knit** button for R Markdown.
+
+### Should You Switch?
+
+For the purposes of this book and most course work, R Markdown remains an excellent choice. However, if you are starting a new project, especially one that involves multiple programming languages or requires a modern website or book format, Quarto is worth exploring.
+
+The good news is that your R Markdown skills transfer directly. Learning Quarto is not starting over; it is building on what you already know.
+
+### Further Resources
+
+- Quarto documentation: <https://quarto.org>
+- The free online book *R for Data Science (2e)* by Hadley Wickham uses Quarto: <https://r4ds.hadley.nz/>
+
+### Exercises
+
+1. Visit <https://quarto.org/docs/get-started/> and install Quarto on your computer. Create a simple `.qmd` file that includes a title, a paragraph of text, and one R code chunk that prints `"Hello, Quarto!"`. Render it to HTML.
+
+2. Convert one of the R Markdown documents you created earlier in this chapter into a Quarto `.qmd` file. What changes did you need to make to the YAML header?
+
+3. In a Quarto document, use the YAML-style chunk option `#| echo: false` to hide the code but show the output of a plot. Compare this with the R Markdown approach of using `echo = FALSE` inside the chunk header.

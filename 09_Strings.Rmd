@@ -1,4 +1,14 @@
 # Strings {#strings}
 
+::: {.objectives}
+**Learning Objectives**
+
+After completing this chapter, you will be able to:
+
+- Combine, subset, and manipulate strings using **stringr** functions
+- Match patterns in text using regular expressions
+- Use character classes, quantifiers, and anchors to build flexible patterns
+:::
+
 In Section \@ref(intro-char-vector), we have introduced the character vector that is consisted of strings.  In this Chapter, we will introduce various kinds of operations we can do on strings using the **stringr** package, which is a subpackage of **tidyverse**.
 

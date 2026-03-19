@@ -47,4 +47,14 @@ my_box_plot <- ggplot(data = na.omit(sahp),
 ggplotly(my_box_plot) 
 ```
 
-For boxplots, we can easily see the values of summary statistics. You are welcome to try out plotly on other types of plots. 
+For boxplots, we can easily see the values of summary statistics. You are welcome to try out plotly on other types of plots.
+
+In this section, we introduced the **plotly** package for creating interactive plots. The `ggplotly()` function provides a convenient way to convert any static **ggplot2** plot into an interactive one, enabling features like hovering to see data values, zooming, and downloading as PNG.
+
+### Exercises
+
+1. Using the `sahp` dataset from the **r02pro** package, create an interactive scatterplot of `liv_area` (x-axis) vs. `sale_price` (y-axis) using `ggplotly()`.
+
+2. Enhance the plot from Exercise 1 by mapping `house_style` to the `color` aesthetic. Hover over points to verify that the house style information is displayed.
+
+3. Create an interactive violin plot of `cholesterol` grouped by `continent` using the `gm2004` dataset. Restrict to three continents of your choice.

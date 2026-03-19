@@ -135,6 +135,16 @@ Lastly, if you have many code chunks that share some chunk options, it is very u
 knitr::include_graphics("pics/10global.PNG")
 ```
 
-In this example, we set `echo = TRUE` and `warning = FALSE`. You can feel free to change their values and add other kinds of customization. In each subsequent chunk, this set of global chunk options will be inherited. Of course, you can add additional options in each chunk to add additional chunk options or overwrite the global chunk options. This may be reminiscent of the relationship between global and local aesthetic mappings introduced in Section \@ref(multi-geom). 
+In this example, we set `echo = TRUE` and `warning = FALSE`. You can feel free to change their values and add other kinds of customization. In each subsequent chunk, this set of global chunk options will be inherited. Of course, you can add additional options in each chunk to add additional chunk options or overwrite the global chunk options. This may be reminiscent of the relationship between global and local aesthetic mappings introduced in Section \@ref(multi-geom).
+
+### Exercises
+
+1. Create a new R Markdown document with the title "My First Report" and your name as the author. Knit it to HTML and verify the output.
+
+2. In your R Markdown document, add a code chunk that computes the mean and standard deviation of `sale_price` from the `sahp` dataset. Set the chunk option `echo = FALSE` so that only the results appear in the output.
+
+3. Add a second code chunk that creates a scatterplot of `liv_area` vs. `sale_price` using **ggplot2**. Set the chunk option `warning = FALSE` and `fig.width = 8`.
+
+4. Set global chunk options at the beginning of your document to have `echo = TRUE`, `warning = FALSE`, and `message = FALSE`. Verify that these options are inherited by subsequent chunks.
 
 

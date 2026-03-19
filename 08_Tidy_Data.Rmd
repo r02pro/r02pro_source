@@ -1,6 +1,17 @@
 # Tidy Data {#tidy-data}
 
-In the part several chapters, you have learned a lot in data visualization, data import and export, and data manipulation. All the data you have seen so far share a very attractive property, namely, they are all *tidy*. So, what is the so called **tidy data**?  Following the definition in @wickham2016r, tidy data has the following three interrelated properties.
+::: {.objectives}
+**Learning Objectives**
+
+After completing this chapter, you will be able to:
+
+- Recognize whether a dataset is in tidy format
+- Reshape data between long and wide formats using `pivot_longer()` and `pivot_wider()`
+- Separate and combine columns with `separate()` and `unite()`
+- Handle missing values with `replace_na()` and `fill()`
+:::
+
+In the past several chapters, you have learned a lot in data visualization, data import and export, and data manipulation. All the data you have seen so far share a very attractive property, namely, they are all *tidy*. So, what is the so called **tidy data**?  Following the definition in @wickham2016r, tidy data has the following three interrelated properties.
 
 1. Each variable must have its own column.
 2. Each observation must have its own row.

@@ -70,11 +70,23 @@ g  + geom_point(stat = "summary",
 ```
 
 ```{r}
-g  + geom_point(stat = "summary", 
-                fun = "mean") + 
-  geom_violin() + 
-  geom_errorbar(stat = "summary", 
-                fun.data = "mean_se", 
+g  + geom_point(stat = "summary",
+                fun = "mean") +
+  geom_violin() +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
                 width = 0.2)
 ```
+
+In this section, we introduced the error bar plot, which visualizes the uncertainty in a measurement. The standard error bar shows the mean $\pm$ one standard error, while a 95% confidence interval uses a multiplier of 1.96. Error bars can be overlaid on top of boxplots or violin plots to combine distribution information with uncertainty measures.
+
+### Exercises
+
+1. Using the `gm2004` dataset from the **r02pro** package, create a mean-error-bar plot for `cholesterol` grouped by `continent`, restricting to `"Africa"`, `"Americas"`, and `"Europe"`. Set the error bar width to 0.3.
+
+2. Modify the plot from Exercise 1 to show a 95% confidence interval by setting `fun.args = list(mult = 1.96)` in `geom_errorbar()`.
+
+3. Using the `sahp` dataset, create a mean-error-bar plot for `sale_price` grouped by `house_style` (restricting to `"1Story"` and `"2Story"`), and overlay a boxplot underneath the error bars.
+
+4. Manually verify the error bar bounds for the `"Africa"` group in Exercise 1 by computing the mean and standard error of `cholesterol` for African countries.
 

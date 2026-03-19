@@ -190,3 +190,13 @@ sahp[1,2]              #verify the modified value
 data(sahp)             #recover the data
 sahp[1,2]              #verify the value is recovered
 ```
+
+### Exercises
+
+1. Use the `head()` function to display the first 10 rows of the `gm2004` dataset. How many variables does it have?
+
+2. Use the `summary()` function on the `sahp` dataset. What is the median `sale_price`? How many missing values does the `oa_qual` variable have?
+
+3. Using the `sahp` dataset, determine whether houses with `"Good"` kitchen quality (`kit_qual`) have higher average `sale_price` than houses with `"Average"` kitchen quality.
+
+4. Convert the `oa_qual` variable in `sahp` into an ordered factor with levels from 2 to 10. Verify the conversion using `str()`.

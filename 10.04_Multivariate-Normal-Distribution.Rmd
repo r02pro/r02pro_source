@@ -7,7 +7,7 @@ $$
 f({\bf x}) = \frac{1}{(2\pi)^{p/2}\sqrt{|{\bf \Sigma}|}}\exp\left[-\frac{1}{2}({\bf x}-{\bf\mu})^T{\bf \Sigma}^{-1}({\bf x}-{\bf\mu})\right].
 $$
 
-### Generate Multivate Normal Distribution
+### Generate Multivariate Normal Distribution
 
 To randomly generate ${\bf x} \sim N({\bf \mu}, {\bf \Sigma})$, you can use the `mvrnorm(n = 1, mu, Sigma)` function in the **MASS** package, which is pre-loaded in the base R. The function `mvnorm()` takes three arguments.
 
