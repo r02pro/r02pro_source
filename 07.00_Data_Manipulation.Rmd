@@ -14,7 +14,7 @@ After completing this chapter, you will be able to:
 
 For conducting data analysis, we often need to conduct various kinds of data manipulation. We will use the `gm` data set in the **r02pro** package throughout this chapter. Let's first look at the data set.
 
-> **At a glance – Chapter ROADMAP**  
+> **At a glance – Chapter ROADMAP**
 > Section \@ref(filter-observations). **Filtering**: Extract specific rows based on logical conditions.  
 > Section \@ref(select-variables). **Selecting**: Choose and rename columns of interest.  
 > Section \@ref(reorder-observations). **Sorting**: Arrange rows in ascending or descending order.  

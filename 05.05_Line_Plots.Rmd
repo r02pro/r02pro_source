@@ -97,7 +97,7 @@ plot(sahp$dt_sold[dt_sold_order],
 
 In addition to the `plot()` function in base R, we can use the `geom_line()` function in the ggplot family. 
 
-```{r, warning = FALSE, message=FALSE}
+```{r, message=FALSE}
 library(tidyverse)
 ggplot(data = sahp) + 
   geom_line(mapping = aes(x = dt_sold, 

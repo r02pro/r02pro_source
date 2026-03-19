@@ -13,7 +13,7 @@ After completing this chapter, you will be able to:
 
 In Chapter \@ref(r-objects), we introduced **atomic vectors**. In a typical application, we usually need a more complex object type to represent the data. In this chapter, we will introduce a few commonly used object types including matrix in Section \@ref(matrix), array in Section \@ref(array), data frame in Section \@ref(dataframe), tibble in Section \@ref(tibble), and list in Section \@ref(list).
 
-> **At a glance – Chapter ROADMAP**  
+> **At a glance – Chapter ROADMAP**
 > Section \@ref(matrix). **Matrix**: Create and manipulate 2D arrays of the same type.  
 > Section \@ref(array). **Array**: Work with higher-dimensional data structures.  
 > Section \@ref(dataframe). **Data Frame**: Store tabular data with mixed types.  

@@ -13,7 +13,7 @@ After completing this chapter, you will be able to:
 
 In this chapter, you will dive into the world of statistics. As a language initially designed for statistical computing, R undoubtedly provides a wide range of functions related to all aspects of probability and statistics. You will start with functions related to normal distribution in Section \@ref(normal-distribution). 
 
-> **At a glance – Chapter ROADMAP**  
+> **At a glance – Chapter ROADMAP**
 > Section \@ref(normal-distribution). **Normal Distribution**: Work with PDF, CDF, quantiles, and random generation.  
 > Section \@ref(other-distributions). **Other Distributions**: Explore t, chi-squared, uniform, binomial, and Poisson distributions.  
 > Section \@ref(sampling). **Sampling**: Perform random permutations and sampling with or without replacement.  

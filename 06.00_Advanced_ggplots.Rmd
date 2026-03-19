@@ -16,7 +16,7 @@ In Chapter \@ref(data-visualization), we introduced the most commonly used plots
 
 In this chapter, we will introduce more types of plots and various customization.
 
-> **At a glance – Chapter ROADMAP**  
+> **At a glance – Chapter ROADMAP**
 > Section \@ref(jitter) & Section \@ref(count). **Comparison Plots**: Use jitter and count plots to address overplotting.  
 > Section \@ref(violin-plots). **Violin Plots**: Visualize distribution density and statistics for comparing groups.  
 > Section \@ref(add-auxiliary). **Line Segments**: Add horizontal, vertical, and custom line segments to plots.  

@@ -31,7 +31,7 @@ We could see a message, saying "`stat_bin()` using `bins = 30`" which implies th
 
 We can change the number of bins with the constant-valued aesthetic `bins`.
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004) + 
   geom_histogram(mapping = aes(x = cholesterol),
                  bins = 5)
@@ -43,7 +43,7 @@ We can see that the histogram now has 5 bins and each bin has the same width.
 
 And from the message, another way to change the number of bins is to specify the `binwidth`, which is another constant-valued aesthetic.
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004) + 
   geom_histogram(mapping = aes(x = cholesterol),
                  binwidth = 0.2)
@@ -53,7 +53,7 @@ ggplot(data = gm2004) +
 
 If desired, you can manually set the bins via the `breaks` argument in the `geom_histogram()` function. 
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004) + 
   geom_histogram(mapping = aes(x = cholesterol),
                  breaks = seq(from = 3.5, 
@@ -74,7 +74,7 @@ The number matches to the height of the first bin. Not that we need to add `na.r
 
 Next, we introduce the aesthetics in histograms, which are very similar to those in bar charts. For example, we can map a variable to the fill aesthetic.
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004) + 
   geom_histogram(mapping = aes(x = cholesterol,
                                fill = gender),
@@ -101,7 +101,7 @@ As expected, we get the same histogram as before.
 
 The second option for position is `"dodge"`, which places the sub-bars beside one another, making it easier to compare individual counts for the combination of a bin of `cholesterol` and `gender`.
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004) + 
   geom_histogram(mapping = aes(x = cholesterol,
                                fill = gender),
@@ -114,7 +114,7 @@ ggplot(data = gm2004) +
 
 Another option for optional is `position = "fill"`. It works like stacking, but makes each set of stacked bars the same height. 
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004) + 
   geom_histogram(mapping = aes(x = cholesterol,
                                fill = gender),
@@ -129,7 +129,7 @@ Just like `geom_bar()`, the y axis may be labeled as "proportion" rather than "c
 ### Density Estimate Using Histograms
 
 In addition to using histograms to visualize the distribution of a discrete variable, you can also construct a density density of variable using a proper normalization. To generate such a density estimate, you can add `y = ..density..` as a mapping in the `aes()` function in `geom_historgram()`. Let's see an example as below.
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004) + 
   geom_histogram(mapping = aes(x = cholesterol,
                                y = ..density..),

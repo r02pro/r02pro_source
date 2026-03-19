@@ -4,7 +4,7 @@ In this chapter, we have introduced the most commonly used plots for visualizati
 
 ### Summary of geoms
 
-```{r echo = FALSE, results = TRUE, warning=FALSE, message=FALSE}
+```{r echo = FALSE, results = TRUE, message=FALSE}
 library(kableExtra)
 Names <- c("Histogram",
            "Density Plot",
@@ -54,7 +54,7 @@ kableExtra::kable(d, format = "pipe")
 
 To conclude this chapter, let's look at an example with all components.
 
-```{r, warning=FALSE, message=FALSE}
+```{r, message=FALSE}
 library(r02pro)
 library(tidyverse)
 ggplot(data = na.omit(sahp)) +

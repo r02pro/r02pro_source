@@ -16,7 +16,7 @@ Welcome! In this book you will learn the essentials of the **R** language and th
 
 The opening chapter closes with your first truly *R-native* skill: **creating and assigning objects**. By the end you will know how to store results, name them sensibly, and reuse them in later computations—an idea that returns throughout the book.
 
-> **At a glance – Chapter 1 roadmap**  
+> **At a glance – Chapter ROADMAP**
 > Section \@ref(Installation). **Installation**: Get R and RStudio running on your computer.  
 > Section \@ref(Calculator). **R as a Calculator**: Perform basic arithmetic, explore built-in functions, and query the help files.  
 > Section \@ref(Object-Assignment). **Object Assignment**: Save your work as named objects and manage them inside RStudio.  

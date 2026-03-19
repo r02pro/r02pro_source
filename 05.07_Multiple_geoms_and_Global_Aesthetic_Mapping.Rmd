@@ -4,7 +4,7 @@ So far, you have learned how to create scatterplots using `geom_point()`, line p
 
 Let's first review the scatterplot and smoothline fit between `sugar` and `cholesterol`. 
 
-```{r, warning=F, message=F}
+```{r, message=F}
 library(r02pro)
 library(tidyverse)
 ggplot(data = gm2004) + 
@@ -18,7 +18,7 @@ ggplot(data = gm2004) +
 ### Multiple geoms
 
 To combine multiple geoms, you can simply use `+` to add them. 
-```{r, warning=F}
+```{r}
 ggplot(data = gm2004) + 
   geom_point(mapping = aes(x = sugar, 
                            y = cholesterol)) + 
@@ -32,7 +32,7 @@ As expected, you see all the points and the smoothline fit on the same plot, whi
 As usual, you can add aesthetics to both geoms. 
 
 Let's first map `gender` to the color aesthetic for `geom_smooth()`.
-```{r, warning=F}
+```{r}
 ggplot(data = gm2004) + 
   geom_point(mapping = aes(x = sugar, 
                            y = cholesterol)) + 
@@ -42,7 +42,7 @@ ggplot(data = gm2004) +
 ```
 
 To verify the two smoothline fits are indeed fitted from the data points in the two groups, you can map `gender` to the color aesthetic for `geom_point()` as well. In addition, let's also map `population` to the size aesthetic. 
-```{r, warning=F}
+```{r}
 ggplot(data = gm2004) + 
   geom_point(mapping = aes(x = sugar, 
                            y = cholesterol,
@@ -57,7 +57,7 @@ The plot is reassuring that the two smoothline fits indeed correspond to the dat
 
 
 In addition to mapping variables to aesthetics, you can also add Constant-Valued aesthetics for each geom.
-```{r, warning=F}
+```{r}
 ggplot(data = gm2004) + 
   geom_point(mapping = aes(x = sugar, 
                            y = cholesterol,
@@ -131,7 +131,7 @@ ggplot(data = sahp_2006,
 
 Naturally, we can add additional aesthetic mappings to the `aes()` function.
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004,
        mapping = aes(x = sugar,
                      y = cholesterol,
@@ -144,7 +144,7 @@ ggplot(data = gm2004,
 
 In addition to the global aesthetic mappings, you can add additional local aesthetic mappings to each geom.
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004,
        mapping = aes(x = sugar,
                      y = cholesterol,
@@ -160,7 +160,7 @@ Here, the global aesthetic mapping `x = sugar`, `y = cholesterol`, and `color = 
 
 When you add the same aesthetic mapping in the local geom as one of the global mappings, the corresponding global aesthetic mapping will be **overwritten**. 
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004,
        mapping = aes(x = sugar,
                      y = cholesterol,
@@ -180,7 +180,7 @@ Let's review the difference between the Constant-Valued Aesthetic and the Global
 
 It is worth noting that we can't set the constant-valued aesthetic at the global level, i.e.there is no **Global Constant-Valued Aesthetics**. Let's try to change all the points and lines to purple by adding `color = "purple"` in `ggplot()`. 
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004,
        mapping = aes(x = sugar,
                      y = cholesterol),
@@ -191,7 +191,7 @@ ggplot(data = gm2004,
 
 As you can see from the output, the argument `color = "purple"` was ignored during the plotting process. To achieve this, you need to use `color = "purple"` as constant-valued aesthetics for both geoms as below.
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004,
        mapping = aes(x = sugar,
                      y = cholesterol)) + 
@@ -203,7 +203,7 @@ ggplot(data = gm2004,
 
 Now, let's see an example where all three types of aesthetics are used.
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = gm2004,
        mapping = aes(x = sugar,
                      y = cholesterol)) + 

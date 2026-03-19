@@ -114,7 +114,7 @@ TRUE <- 12
 
 Some common reserved keywords that cannot be used as names are listed below.
 
-```{r results = TRUE, echo=FALSE, warning=FALSE}
+```{r results = TRUE, echo=FALSE}
 knitr::kable(matrix(c("TRUE", "FALSE", "NA", "Inf",
  "NaN", "function", "if", "else", "for", "while",
   "break", "next", "repeat", "return"), 7, 2))

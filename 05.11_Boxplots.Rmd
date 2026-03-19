@@ -115,14 +115,14 @@ ggplot(data = remove_missing(sahp, vars = "sale_price")) +
 ```
 
 If you want to generate a flipped version of the boxplot, you can add `coord_flip()` to the `ggplot()` function. Actually, this works with any ggplot. 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = sahp) + 
   geom_boxplot(aes(x = kit_qual, y = sale_price)) + 
   coord_flip()
 ```
 
 As an alternative, you can also switch the `x` and `y` arguments. 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = sahp) + 
   geom_boxplot(aes(x = sale_price, y = kit_qual))
 ```
@@ -149,7 +149,7 @@ This agrees perfectly with our intuition that houses with higher overall quality
 ### Aesthetics in Boxplots
 
 Before talking about aesthetics, let's create a boxplot of `sale_price` for different values of `house_style`. 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = na.omit(sahp), 
        aes(x = house_style, 
            y = sale_price)) +
@@ -159,7 +159,7 @@ ggplot(data = na.omit(sahp),
 
 Note that we only show the two boxplots with `house_style` equaling `"1Story"` or `"2Story"`. To simply the codes, it is sometimes helpful to store the intermediate plot object and build additional plots on top of it. For example, we can generate the same boxplot using the following two steps.
 
-```{r, eval = TRUE, results = FALSE, warning=FALSE}
+```{r, eval = TRUE, results = FALSE}
 g <- ggplot(data = na.omit(sahp), 
             aes(x = house_style, 
                 y = sale_price)) +
@@ -171,7 +171,7 @@ g + geom_boxplot()
 
 First, let's try to map the variable `house_style` to the `color` aesthetic. 
 
-```{r, warning=FALSE}
+```{r}
 g + geom_boxplot(mapping = aes(color = house_style))
 ```
 
@@ -181,7 +181,7 @@ We can see that the boxplots have different colors according to the value of `ho
 
 You can also use the `fill` aesthetic to fill in the boxes with different colors according to the value of `house_style`. 
 
-```{r, warning=FALSE}
+```{r}
 g + geom_boxplot(mapping = aes(fill = house_style))
 
 ```
@@ -191,14 +191,14 @@ g + geom_boxplot(mapping = aes(fill = house_style))
 
 So far, we have only mapped the discrete variable on the x-axis to the aesthetic. You can map a third variable to an aesthetic if a further refined comparision is needed. Let's try to map the `oa_qual > 5` to `color`. 
 
-```{r, warning=FALSE}
+```{r}
 g + geom_boxplot(mapping = aes(color = oa_qual > 5))
 ```
 
 You will get a boxplot for each combination of `house_style` and `oa_qual` grouped by the variable `house_style`, just like when we create the bar charts in Section \@ref(bar-charts). 
 
 As before, you can also cut a continuous variable and map it to aesthetic. 
-```{r, warning=FALSE}
+```{r}
 g + geom_boxplot(mapping = aes(color = cut_width(oa_qual, 2)))
 ```
 
@@ -207,7 +207,7 @@ g + geom_boxplot(mapping = aes(color = cut_width(oa_qual, 2)))
 
 Similarly, you can also map the variable to the `fill` aesthetic. 
 
-```{r, warning=FALSE}
+```{r}
 g + geom_boxplot(mapping = aes(fill = oa_qual > 5))
 
 ```
@@ -217,13 +217,13 @@ g + geom_boxplot(mapping = aes(fill = oa_qual > 5))
 
 In addition to mapping variables to aesthetics, you can also use Constant-Valued Aesthetics in boxplot. For example, to make the box green and the lines and points red, you can use 
 
-```{r, warning=FALSE}
+```{r}
 g + geom_boxplot(fill = "green", color = "red")
 ```
 
 If you want to change the shape and size of the outliers, you can set the arguments `outlier.shape` and `outlier.size`.
 
-```{r, warning=FALSE}
+```{r}
 g + geom_boxplot(outlier.color = "green", 
                  outlier.shape = 2, 
                  outlier.size = 3)

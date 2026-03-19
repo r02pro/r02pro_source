@@ -8,7 +8,7 @@ install.packages("plotly")
 
 Let's start with a static scatterplot and make it interactive. 
 
-```{r, warning=FALSE}
+```{r}
 library(r02pro)
 library(ggplot2)
 library(plotly)

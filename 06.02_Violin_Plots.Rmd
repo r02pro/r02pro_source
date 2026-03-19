@@ -38,7 +38,7 @@ Here, we set the aesthetic `width = 0.1` in the boxplot to make it thinner.
 
 Just like in the boxplot, we can compare the distributions of a continuous variable for different values of a discrete variable. We can achieve this by mapping the discrete variable to the x axis.
 
-```{r, warning = FALSE}
+```{r}
 ggplot(data = gm2004, 
        aes(x = continent, 
            y = cholesterol)) + 
@@ -47,7 +47,7 @@ ggplot(data = gm2004,
 ```
 
 We can restrict the x-axis to a subset of the possible `continent` values. 
-```{r, warning = FALSE}
+```{r}
 ggplot(data = gm2004, 
        aes(x = continent, 
            y = cholesterol, 
@@ -60,7 +60,7 @@ ggplot(data = gm2004,
 
 Similarly, we can map a third variable to an aesthetic.
 
-```{r, warning = FALSE}
+```{r}
 ggplot(data = gm2004, 
        aes(x = continent, 
            y = cholesterol, 
@@ -72,7 +72,7 @@ ggplot(data = gm2004,
 
 As you can see, the boxplot doesn't align well inside the violin plot. To fix this issue, you can add the global aesthetic `position = position_dodge(0.9)` to both geoms. 
 
-```{r, warning = FALSE}
+```{r}
 ggplot(data = gm2004, 
        aes(x = continent, 
            y = cholesterol, 
@@ -84,7 +84,7 @@ ggplot(data = gm2004,
 
 You can also try to add other Constant-Valued Aesthetics to both geoms to change their appearances. 
 
-```{r, warning = FALSE}
+```{r}
 ggplot(data = gm2004,
        aes(x = continent,
            y = cholesterol,

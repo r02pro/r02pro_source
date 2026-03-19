@@ -28,7 +28,7 @@ getwd()
 
 For illustration purposes, we will create a folder called "data" using the function `dir.create()` under the current working directory and export/import to/from files in this folder. 
 
-```{r, warning=FALSE, eval=FALSE}
+```{r, eval=FALSE}
 dir.create("data")
 ```
 

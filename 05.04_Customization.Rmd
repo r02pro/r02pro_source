@@ -38,7 +38,7 @@ my_plot <- ggplot(data = gm2004) +
 
 By default, the x and y labels are the variables names, and there is no title for the plot. You can customize the x and y labels using the `xlab()` and `ylab()` function, and add a title with the `ggtitle()` function. 
 
-```{r, warning=FALSE}
+```{r}
 my_plot_2 <- my_plot + 
   xlab("Sugar (grams per person and day)") + 
   ylab("Cholesterol (mmol/L)") + 

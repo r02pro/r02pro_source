@@ -6,7 +6,7 @@ It is sometimes helpful to add line segments as auxiliary lines to existing plot
 
 Let's first review the scatterplot between `liv_area` and `sale_price`. 
 
-```{r, warning=FALSE, fig.show='hide'}
+```{r, fig.show='hide'}
 library(r02pro)
 plot(sahp$liv_area, sahp$sale_price)
 ```
@@ -44,7 +44,7 @@ abline(a = 100, b = 0.1, col = "green")
 
 Let's first review the following scatterplot between `liv_area` and `sale_price`. 
 
-```{r, warning=FALSE}
+```{r}
 library(r02pro)
 library(tidyverse)
 ggplot(data = sahp) + 
@@ -53,7 +53,7 @@ ggplot(data = sahp) +
 
 Looking at the scatterplot, it maybe helpful to add a horizontal line. To do this, you can use the `geom_hline()` function with argument `yintercept` specifying the value on the y-axis. 
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = sahp) + 
   geom_point(mapping = aes(x = liv_area, y = sale_price)) + 
   geom_hline(yintercept = 300, color = "red")
@@ -63,7 +63,7 @@ Here, a horizontal line at 300 is added to the scatterplot.
 
 You can also add both vertical lines and horizontal lines to the same plot. 
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = sahp) + 
   geom_point(mapping = aes(x = liv_area, y = sale_price)) + 
   geom_vline(xintercept = 2000, color = "green") + 
@@ -72,7 +72,7 @@ ggplot(data = sahp) +
 
 In addition to adding vertical lines and horizontal lines, you can also add any line with the `geom_abline()` function. We know a line can be represented as a function $y = a + b\times x$, where $a$ is the intercept and $b$ is the slope. In the `geom_abline()`, you can generate such a line by specifying the `slope` and `intercept` arguments. 
 
-```{r, warning=FALSE}
+```{r}
 ggplot(data = sahp) + 
   geom_point(mapping = aes(x = liv_area, y = sale_price)) + 
   geom_abline(slope = 0.1, intercept = 100, color = "blue")
