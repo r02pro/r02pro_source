@@ -107,6 +107,7 @@ read_csv("x,y,z
 ```
 
 You can see an error message, stating that it is expecting character values, but got double values.
+:::
 
 ### Importing Data From a Delimited File
 
