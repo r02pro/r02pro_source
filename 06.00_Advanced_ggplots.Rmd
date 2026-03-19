@@ -15,3 +15,11 @@ After completing this chapter, you will be able to:
 In Chapter \@ref(data-visualization), we introduced the most commonly used plots. If you skipped the previous chapter, it may be worthwhile to briefly review Section \@ref(review-basic-visualization).
 
 In this chapter, we will introduce more types of plots and various customization.
+
+> **At a glance – Chapter ROADMAP**  
+> Section \@ref(jitter) & Section \@ref(count). **Comparison Plots**: Use jitter and count plots to address overplotting.  
+> Section \@ref(violin-plots). **Violin Plots**: Visualize distribution density and statistics for comparing groups.  
+> Section \@ref(add-auxiliary). **Line Segments**: Add horizontal, vertical, and custom line segments to plots.  
+> Section \@ref(heat-map). **Heat Maps**: Visualize magnitude across categories using tiled colors.  
+> Section \@ref(errorbar). **Error Bars**: Display uncertainty in statistical measurements.  
+> Section \@ref(plotly). **Interactive Plots**: Transform static charts into interactive visualizations.

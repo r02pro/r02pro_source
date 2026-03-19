@@ -1,5 +1,17 @@
 # Introduction {#introduction}
 
+::: {.objectives}
+**Learning Objectives**
+
+After completing this chapter, you will be able to:
+
+- Install R, RStudio, and necessary helper packages
+- Use R as a fancy calculator for basic arithmetic
+- Navigate the built-in R help system to learn about functions
+- Create and assign values to objects and manage them in RStudio
+:::
+
+
 Welcome! In this book you will learn the essentials of the **R** language and the tidyverse workflow through a series of short, hands-on chapters, from zero to pro. To begin, we'll make sure your toolkit is ready by installing **R**, **RStudio**, and a few helper packages. Next, you will discover how R doubles as a *fancy calculator*, try out the built-in help system, and learn how to write clear, reproducible code.
 
 The opening chapter closes with your first truly *R-native* skill: **creating and assigning objects**. By the end you will know how to store results, name them sensibly, and reuse them in later computations—an idea that returns throughout the book.

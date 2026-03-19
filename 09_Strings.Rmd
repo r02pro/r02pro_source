@@ -12,3 +12,7 @@ After completing this chapter, you will be able to:
 
 In Section \@ref(intro-char-vector), we have introduced the character vector that is consisted of strings.  In this Chapter, we will introduce various kinds of operations we can do on strings using the **stringr** package, which is a subpackage of **tidyverse**.
 
+> **At a glance – Chapter ROADMAP**  
+> Section \@ref(combine-subset-strings). **Basics**: Concatenate and subset strings with `str_c()` and `str_sub()`.  
+> Section \@ref(match-pattern). **Regex**: Master regular expressions for flexible pattern matching and detection.
+

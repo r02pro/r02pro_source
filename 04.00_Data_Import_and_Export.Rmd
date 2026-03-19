@@ -13,3 +13,11 @@ After completing this chapter, you will be able to:
 
 So far in this book, you have been creating objects by yourself. When working on real projects, you often need to **import** existing data into R, or **export** the created objects or analysis results into a file on the computer. In this chapter, you will learn how to import and export data of different file types.
 
+> **At a glance – Chapter ROADMAP**  
+> Section \@ref(intro-dataset). **Introduction to Datasets**: Explore and summarize built-in and package datasets.  
+> Section \@ref(export-data). **Exporting**: Save data to delimited files like CSV.  
+> Section \@ref(import-data). **Importing**: Read data from delimited files into R.  
+> Section \@ref(import-excel). **Excel Files**: Work with `.xlsx` and `.xls` files.  
+> Section \@ref(import-other). **Other Formats**: Import from SPSS, SAS, and Stata.  
+> Section \@ref(save-object). **R Objects & Workspace**: Save and restore any R object or your entire environment.
+
