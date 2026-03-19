@@ -43,7 +43,8 @@ jobs:
         run: |
           install.packages(c(
             "bookdown", "tidyverse", "r02pro", "plotly",
-            "kableExtra", "MASS", "purrr", "glue"
+            "kableExtra", "MASS", "purrr", "glue", "gtools",
+            "writexl", "readxl", "knitr", "rmarkdown"
           ))
         shell: Rscript {0}
 
