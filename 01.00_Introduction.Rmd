@@ -9,6 +9,10 @@ After completing this chapter, you will be able to:
 - Use R as a fancy calculator for basic arithmetic
 - Navigate the built-in R help system to learn about functions
 - Create and assign values to objects and manage them in RStudio
+- Create and knit R Markdown documents to HTML, PDF, and Word
+- Use code chunks with appropriate chunk options to control output
+- Format text with headers, emphasis, lists, links, and equations
+- Add tables, citations, and bibliographies to your reports
 :::
 
 
@@ -20,6 +24,11 @@ The opening chapter closes with your first truly *R-native* skill: **creating an
 > Section \@ref(Installation). **Installation**: Get R and RStudio running on your computer.  
 > Section \@ref(Calculator). **R as a Calculator**: Perform basic arithmetic, explore built-in functions, and query the help files.  
 > Section \@ref(Object-Assignment). **Object Assignment**: Save your work as named objects and manage them inside RStudio.  
+> Section \@ref(r-markdown). **R Markdown**: Learn to use R Markdown to turn analyses into high quality documents.
+> Section \@ref(intro-r-markdown). **Getting Started**: Learn the structure and knit to multiple formats.  
+> Section \@ref(rmd-text-formatting). **Formatting**: Master Markdown syntax for headers, lists, links, and equations.  
+> Section \@ref(rmd-advanced-chunks). **Dynamic Content**: Control how code and output appear in your final report.  
+> Section \@ref(quarto). **Next Steps**: Explore Quarto as the successor to R Markdown.
 
 Each subsequent chapter builds on this foundation. Chapter 2 introduces atomic vectors, and Chapter 3 dives into other object types including matrices, data frames, tibbles and lists. Later chapters tackle visualization, data wrangling, and programming patterns. 
 
