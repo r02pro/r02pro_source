@@ -88,7 +88,7 @@ knitr::include_graphics("pics/1answer.png")
 Hooray! You have successfully run the first piece of R code and gotten the correct answer 3. Note that the blinking cursor now appears on the next line, ready to accept a new line of code.
 
 ::: {.infobox .caution data-latex="{caution}"}
-The curious you may found that there is a `[1]` showing before the result `3`.  In fact, the `[1]` is an index indicator, showing the next element has an index of 1 in this particular object. We will revisit this point when we introduce vectors in  Chapter \@ref(r-objects) . 
+The curious you may found that there is a `[1]` showing before the result `3`.  In fact, the `[1]` is an index indicator, showing the next element has an index of 1 in this particular object. We will revisit this point when we introduce vectors in Chapter \@ref(basic-vectors).
 :::
 
 

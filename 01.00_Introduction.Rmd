@@ -29,7 +29,7 @@ The opening chapter closes with your first truly *R-native* skill: **creating an
 > Section \@ref(rmd-text-formatting). **Formatting**: Master Markdown syntax for headers, lists, links, and equations.  
 > Section \@ref(rmd-advanced-chunks). **Dynamic Content**: Control how code and output appear in your final report.
 
-Each subsequent chapter builds on this foundation. Chapter 2 introduces atomic vectors, and Chapter 3 dives into other object types including matrices, data frames, tibbles and lists. Later chapters tackle visualization, data wrangling, and programming patterns. 
+Each subsequent chapter builds on this foundation. Chapter 2 introduces basic atomic vectors, Chapter 3 covers advanced vector operations, and Chapter 4 dives into other object types including matrices, data frames, tibbles and lists. Later chapters tackle visualization, data wrangling, and programming patterns. 
 
 Feel free to read linearly or jump straight to the topic you need; every section is written so that examples run independently once you have completed the installation step.
 

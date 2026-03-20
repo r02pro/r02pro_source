@@ -1,6 +1,6 @@
 ## Data Frame {#dataframe}
 
-So far, we have learned atomic vectors (Chapter \@ref(r-objects)), matrices (Section \@ref(matrix)), and arrays (Section \@ref(array)). Regardless of their dimensionality, the three different object types share an important features: they all contain elements of the **same** type (i.e., numeric, character, or logical). In real applications, it is common to have mixed variable types. To accommodate this, let's introduce a new two-dimensional object type: **data frame**. 
+So far, we have learned atomic vectors (Chapters \@ref(basic-vectors) and \@ref(advanced-vectors)), matrices (Section \@ref(matrix)), and arrays (Section \@ref(array)). Regardless of their dimensionality, the three different object types share an important features: they all contain elements of the **same** type (i.e., numeric, character, or logical). In real applications, it is common to have mixed variable types. To accommodate this, let's introduce a new two-dimensional object type: **data frame**. 
 
 ### Introduction to Data Frames
 

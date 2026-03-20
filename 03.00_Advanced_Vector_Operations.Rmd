@@ -1,0 +1,30 @@
+# R Objects (II): Advanced Vector Operations {#advanced-vectors}
+
+::: {.objectives}
+**Learning Objectives**
+
+After completing this chapter, you will be able to:
+
+- Create patterned numeric and character vectors
+- Sort, rank, and order vectors
+- Compute summary statistics on vectors
+- Understand the difference between character vectors and factors
+- Perform set operations and use advanced logical operators
+- Handle missing values, dates, and other special atomic types
+:::
+
+In Chapter \@ref(basic-vectors), we mastered the basic mechanisms of atomic vectors: creating them, understanding coercion, and subsetting them. Now, we expand our toolkit in Chapter \@ref(advanced-vectors) by diving into advanced operations that are crucial for real-world data manipulation.
+
+We will explore how to generate patterned sequences, sort and rank data, and summarize vectors statistically. This chapter also transitions into more complex data types like dates, times, and factors, preparing you for the robust data wrangling you will eventually perform.
+
+> **At a glance – Chapter ROADMAP**
+> 
+> Section \@ref(patterned_numeric_vectors_creation) & Section \@ref(char-concatenate). **Patterned Vectors**: Create repeating or patterned numeric and character sequences.  
+> Section \@ref(numeric-sort-rank-order) & Section \@ref(character-sort-rank-order). **Ordering**: Sort, rank, and order numeric and character vectors.  
+> Section \@ref(numeric-vector-statistics). **Statistics**: Calculate descriptive statistics for vectors.  
+> Section \@ref(factors). **Factors**: Understand when and how to categorical data using factors.  
+> Section \@ref(logical-patterns) & Section \@ref(logical-operators). **Logical Operations**: Combine and apply logical conditions efficiently.  
+> Section \@ref(set-operations-vectors). **Set Operations**: Perform union, intersect, and differences on vectors.  
+> Section \@ref(missing-values). **Missing Values**: Identify and manage `NA` entries.  
+> Section \@ref(date-time). **Dates**: Work with timestamps and date objects.  
+> Section \@ref(other-atomic-vector). **Other Types**: Meet complex numbers and raw bits.

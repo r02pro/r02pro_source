@@ -5,7 +5,7 @@ Through the last chapter and this one, we have covered all major types of R obje
 ```{r echo = FALSE, results = TRUE}
 library(tibble)
 Type  <- c("Vector","Matrix","Array","Data Frame/Tibble", "List")
-Section <- c("\\@ref(r-objects)","\\@ref(matrix)","\\@ref(array)","\\@ref(dataframe) - \\@ref(tibble)","\\@ref(list)")
+Section <- c("\\@ref(basic-vectors)","\\@ref(matrix)","\\@ref(array)","\\@ref(dataframe) - \\@ref(tibble)","\\@ref(list)")
 Dim <- c(1, 2, ">=3", 2, 1)
 data_type <- c("Single", "Single","Single", "Multiple", "Multiple")
 d <- tibble(Type, Section, Dim, `Data Type` = data_type )

@@ -165,12 +165,12 @@ So far we have assigned single numeric values to objects. In practice an object 
 
 ```{r echo = FALSE, results = TRUE}
 Type  <- c("Atomic Vector","Matrix","Array","Data Frame", "Tibble", "List")
-Section <- c("\\@ref(r-objects)","\\@ref(matrix)","\\@ref(array)","\\@ref(dataframe)","\\@ref(tibble)","\\@ref(list)")
+Section <- c("\\@ref(basic-vectors)","\\@ref(matrix)","\\@ref(array)","\\@ref(dataframe)","\\@ref(tibble)","\\@ref(list)")
 d <- data.frame(Type, Section)
 knitr::kable(d)
 ```
 
-We will focus on atomic vectors in Chapter \@ref(r-objects) and explore the remaining object types in Chapter \@ref(object-other-type).
+We will focus on atomic vectors in Chapters \@ref(basic-vectors) and \@ref(advanced-vectors) and explore the remaining object types in Chapter \@ref(object-other-type).
 
 Some object types look more intuitive than others, but the next two chapters walk through each in detail. Objects are the building blocks of R programming, so the time you invest in understanding them will pay off quickly.
 

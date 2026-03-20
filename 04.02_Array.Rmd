@@ -1,6 +1,6 @@
 ## Array {#array}
 
-Having learned the 1-dimensional atomic vectors in Chapter \@ref(r-objects) and 2-dimensional matrix in Section \@ref(matrix), we will now take a look in higher dimensional space, namely **array**. Array can be viewed as an generalization of vector and matrix to a higher dimensional ($>=3$) space, and still only contains elements of the same type. 
+Having learned the 1-dimensional atomic vectors in Chapters \@ref(basic-vectors) and \@ref(advanced-vectors) and 2-dimensional matrix in Section \@ref(matrix), we will now take a look in higher dimensional space, namely **array**. Array can be viewed as an generalization of vector and matrix to a higher dimensional ($>=3$) space, and still only contains elements of the same type. 
 
 ### Create an array from a vector
 
