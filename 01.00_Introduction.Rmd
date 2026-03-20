@@ -12,7 +12,7 @@ After completing this chapter, you will be able to:
 - Create and knit R Markdown documents to HTML, PDF, and Word
 - Use code chunks with appropriate chunk options to control output
 - Format text with headers, emphasis, lists, links, and equations
-- Add tables, citations, and bibliographies to your reports
+- Add simple tables to your reports
 :::
 
 
