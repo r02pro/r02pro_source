@@ -55,20 +55,24 @@ If you have more general questions or feedback about any materials in the book, 
 
 ```{r, results = "asis", echo = FALSE, message = FALSE}
 library(dplyr)
-contributors <- readr::read_csv("contributors.csv", col_types = list())
-
-contributors <- contributors %>% 
-  mutate(
-    link = glue::glue("[\\@{login}](https://github.com/{login})"),
-    desc = ifelse(is.na(login), name, ifelse(is.na(name), link, glue::glue("{name} ({link})")))
-  )
-
-cat("This book represents the culmination of numerous collaborative efforts and the synthesis of diverse perspectives. We extend our heartfelt gratitude to Dr. Rebecca Betensky, Dr. Rumi Chunara, Dr. Hai Shu, and Ms. Jianan Zhu for their invaluable contributions. Their visionary guidance was pivotal in the conceptualization and development of the courses GPH-GU 2183: Introduction to Statistical Programming in R and GPH-GU 2184: Intermediate Statistical Programming in R. Notably, Ms. Jianan Zhu played a significant role in shaping an earlier version of this book. 
+if(file.exists("contributors.csv")){
+  contributors_df <- readr::read_csv("contributors.csv", col_types = list())
+  
+  contributors_df <- contributors_df %>% 
+    mutate(
+      link = glue::glue("[\\@{login}](https://github.com/{login})"),
+      desc = ifelse(is.na(login), name, ifelse(is.na(name), link, glue::glue("{name} ({link})")))
+    )
+  
+  cat("This book represents the culmination of numerous collaborative efforts and the synthesis of diverse perspectives. We extend our heartfelt gratitude to Dr. Rebecca Betensky, Dr. Rumi Chunara, Dr. Hai Shu, and Ms. Jianan Zhu for their invaluable contributions. Their visionary guidance was pivotal in the conceptualization and development of the courses GPH-GU 2183: Introduction to Statistical Programming in R and GPH-GU 2184: Intermediate Statistical Programming in R. Notably, Ms. Jianan Zhu played a significant role in shaping an earlier version of this book. 
 
 We are also deeply grateful to the dedicated students of GPH-GU 2183: Introduction to Statistical Programming in R, GPH-GU 2184: Intermediate Statistical Programming in R, and GPH-GU 2182: Statistical Programming in R at New York University. Their enthusiasm and commitment have greatly enriched the learning experience and inspired many of the ideas presented in this text.
 
 The roster of contributors to this book is extensive, and each individual's unique perspective and expertise has helped shape its content in meaningful ways. This text truly stands as a testament to the power of collaboration and the spirit of learning. The list of people who made contributions include ")
-cat(paste0(contributors$desc, collapse = ", "))
+  cat(paste0(contributors_df$desc, collapse = ", "))
+} else {
+  cat("This book represents the culmination of numerous collaborative efforts and the synthesis of diverse perspectives. We extend our heartfelt gratitude to Dr. Rebecca Betensky, Dr. Rumi Chunara, Dr. Hai Shu, and Ms. Jianan Zhu for their invaluable contributions. (Note: Contributors list file missing)")
+}
 ```
 
 # Building Environment {-}
