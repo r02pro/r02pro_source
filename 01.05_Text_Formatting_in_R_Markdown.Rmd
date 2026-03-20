@@ -42,11 +42,11 @@ You can include code within your sentences in two ways:
 > **Heads‑up:** Never wrap code *inside* a code chunk with back‑ticks: `knitr()` will treat them as unmatched delimiters and throw an error when you knit.
 
 ```{r incorrect-back-tick-code, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="Incorrect back-ticks in a code chunck", out.width = '90%'}
-knitr::include_graphics("pics/10code.PNG")
+knitr::include_graphics("pics/10code.png")
 ```
 
 ```{r incorrect-back-tick-code-error, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="The error message", out.width = '90%'}
-knitr::include_graphics("pics/10error.PNG")
+knitr::include_graphics("pics/10error.png")
 ```
 
 ### Lists: Ordered and Unordered

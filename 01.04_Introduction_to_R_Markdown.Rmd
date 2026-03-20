@@ -9,12 +9,12 @@ R Markdown is an interactive and dynamic file format in R. An R Markdown file ca
 To create an R Markdown document, you can click the `+` button on the R Studio menu, then select *R Markdown*. 
 
 ```{r rmd, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="create a new R Markdown document (I)", out.width = '70%'}
-knitr::include_graphics("pics/10rmd.PNG")
+knitr::include_graphics("pics/10rmd.png")
 ```
 
 Then you will see a window pops up like Figure \@ref(fig:rmarkdown).
 ```{r rmarkdown, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="create a new R Markdown document (II)", out.width = '70%'}
-knitr::include_graphics("pics/10rmarkdown.PNG")
+knitr::include_graphics("pics/10rmarkdown.png")
 ```
 
 Here, you can enter the Title and Author of the document, and select one of the output formats: HTML, PDF and Word. In our opinion, **HTML is the recommended format for authoring**. If you want to generate a PDF, you need to have a **Tex installation**, which would have already been installed if you write LaTex documents on the computer. If necessary, you can install TinyTeX with the R package `tinytex`. 
@@ -32,19 +32,19 @@ A word of caution is needed here. We have seen a lot of people having issues wit
 After clicking OK, you have created an R Markdown document with file extension **.Rmd**. You can save the file with a desired name on the disk by clicking the *save* button or using keyboard shortcut of saving files. Here, we use the name Lesson 10.1. It is clear to see the difference of file extension between R Markdown document and R script.
 
 ```{r diff, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="R Markdown vs. R Script", out.width = '70%'}
-knitr::include_graphics("pics/10diff.PNG")
+knitr::include_graphics("pics/10diff.png")
 ```
 
 ### Knit the R Markdown document
 
 To generate the final output document, you need to **knit** the .Rmd file. To do that, you can click the **Knit** button shown in the following figure. 
 ```{r knit, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="Knit button", out.width = '70%'}
-knitr::include_graphics("pics/10knit.PNG")
+knitr::include_graphics("pics/10knit.png")
 ```
 
 Then you will get an HTML, PDF, or Word document, according to the chosen document type. Let's take a look at the HTML document together,
 ```{r H, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="HTML document", out.width = '70%'}
-knitr::include_graphics("pics/10H1.PNG")
+knitr::include_graphics("pics/10H1.png")
 ```
 
 A document consists of components three different types. The first type is the header of document, the second type is text, and the third type is related to codes and the results. Since the output document is rendered from the .Rmd file, the .Rmd file also has three type of components accordingly. 
@@ -88,14 +88,14 @@ The last component type is related to R codes. Different from R script, the R co
 
 A **code chunk** is basically a collection of R codes surrounded by the chunk delimiters ```` ```{r} ```` and ```` ``` ````. Let's take a look at one code chunk as follows.
 ```{r code-chunk, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="An R Code Chunk", out.width = '90%'}
-knitr::include_graphics("pics/10codechunck.PNG")
+knitr::include_graphics("pics/10codechunck.png")
 ```
 
 In this code chunk, there is only one line of code `summary(cars)` which will output the summary statistics of the `cars` data set. If necessary, you can include any lines of codes inside each code chunk. Each chunk can be viewed as a unit that usually serves a particular purpose. Inside each code chunk, you can run the codes **line by line** by the keyboard shortcut Cmd + Enter / Ctrl + Enter. However, it is often more convenient to run the codes **all at once** using the keyboard shortcut Shift + Cmd + Enter / Shift + Ctrl + Enter, or press the Green arrow on the right of the code chunk. 
 
 Then you will see both R code and the result from the output document by default.
 ```{r re, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="R code and the result", out.width = '90%'}
-knitr::include_graphics("pics/10H3.PNG")
+knitr::include_graphics("pics/10H3.png")
 ```
 
 In addition to the R code, you may be wondering what do the arguments in the big parentheses `{ }` work for. Here, we will introduce a few useful **chunk options** which control the behavior of each code chunk. 
@@ -111,22 +111,22 @@ There are many other available options in an R Markdown code chunk. You can refe
 
 Now let's see some examples together. If you add the chunk option `eval = FALSE`.
 ```{r ev1, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="Add `eval = FALSE`", out.width = '90%'}
-knitr::include_graphics("pics/10eval1.PNG")
+knitr::include_graphics("pics/10eval1.png")
 ```
 
 Then you will see the code without the result from the output.
 ```{r ev2, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="Only see the code", out.width = '90%'}
-knitr::include_graphics("pics/10eval2.PNG")
+knitr::include_graphics("pics/10eval2.png")
 ```
 
 If you add the chunk option `echo = FALSE`, 
 ```{r ec1, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="Add `echo = FALSE`", out.width = '90%'}
-knitr::include_graphics("pics/10echo1.PNG")
+knitr::include_graphics("pics/10echo1.png")
 ```
 
 you will see the result without the code from the output.
 ```{r ec2, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="Only see the result", out.width = '90%'}
-knitr::include_graphics("pics/10echo2.PNG")
+knitr::include_graphics("pics/10echo2.png")
 ```
 
 You can try to add other chunk options by yourself!
@@ -134,7 +134,7 @@ You can try to add other chunk options by yourself!
 Lastly, if you have many code chunks that share some chunk options, it is very useful to set the **global chunk options** at the beginning of an R Markdown document. To do that, you can add the following chunk right after the YAML header. 
 
 ```{r glo, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="global chunk options", out.width = '90%'}
-knitr::include_graphics("pics/10global.PNG")
+knitr::include_graphics("pics/10global.png")
 ```
 
 In this example, we set `echo = TRUE` and `warning = FALSE`. You can feel free to change their values and add other kinds of customization. In each subsequent chunk, this set of global chunk options will be inherited. Of course, you can add additional options in each chunk to add additional chunk options or overwrite the global chunk options. This may be reminiscent of the relationship between global and local aesthetic mappings introduced in Section \@ref(multi-geom).
