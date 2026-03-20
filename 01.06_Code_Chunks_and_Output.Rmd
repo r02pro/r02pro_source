@@ -14,11 +14,8 @@ When a code chunk produces a plot, you can control its appearance with several c
 Here is an example:
 
 ````markdown
-`r ''````{r my-plot, fig.width=8, fig.height=5, fig.cap="Scatterplot of sale price vs. living area", fig.align="center", out.width="80%"}
-library(r02pro)
-library(ggplot2)
-ggplot(sahp, aes(x = liv_area, y = sale_price)) +
-  geom_point()
+`r ''````{r my-plot, fig.width=8, fig.height=5, fig.cap="Scatterplot of pressure vs. temperature", fig.align="center", out.width="80%"}
+plot(pressure)
 ```
 ````
 
@@ -55,9 +52,9 @@ Recall from Section \@ref(rmd-text-formatting) that you can embed R expressions 
 
 For example, you might write:
 
-> The `sahp` dataset contains `` `r knitr::inline_expr('nrow(sahp)')` `` observations and `` `r knitr::inline_expr('ncol(sahp)')` `` variables.
+> We have assigned `x <- 5`. The cube of `x` is `` `r knitr::inline_expr('x^3')` ``.
 
-This renders as: "The `sahp` dataset contains 165 observations and 12 variables." The numbers update automatically if the data changes.
+This renders as: "We have assigned `x <- 5`. The cube of `x` is 125." The number updates automatically if you change the value of `x` earlier in the document.
 
 ### Setting Chunk Options for the Whole Document
 
@@ -84,4 +81,4 @@ Individual chunks can still override these global settings as needed.
 
 3. Create a code chunk that produces a formatted table using `knitr::kable()` with `results = "asis"`. Verify that the table renders correctly in the knitted output.
 
-4. Write a paragraph that uses inline R code to report the mean and standard deviation of `sale_price` from the `sahp` dataset. The numbers should update automatically if the data changes.
+4. Write a paragraph that uses inline R code to calculate and report the value of `exp(3) / log(20, 3) * 7`. The number should evaluate directly within the text.

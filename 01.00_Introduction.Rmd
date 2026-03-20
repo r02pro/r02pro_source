@@ -24,7 +24,6 @@ The opening chapter closes with your first truly *R-native* skill: **creating an
 > Section \@ref(Installation). **Installation**: Get R and RStudio running on your computer.  
 > Section \@ref(Calculator). **R as a Calculator**: Perform basic arithmetic, explore built-in functions, and query the help files.  
 > Section \@ref(Object-Assignment). **Object Assignment**: Save your work as named objects and manage them inside RStudio.  
-> Section \@ref(r-markdown). **R Markdown**: Learn to use R Markdown to turn analyses into high quality documents.
 > Section \@ref(intro-r-markdown). **Getting Started**: Learn the structure and knit to multiple formats.  
 > Section \@ref(rmd-text-formatting). **Formatting**: Master Markdown syntax for headers, lists, links, and equations.  
 > Section \@ref(rmd-advanced-chunks). **Dynamic Content**: Control how code and output appear in your final report.  
