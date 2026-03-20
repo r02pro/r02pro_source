@@ -19,7 +19,7 @@ We will explore how to generate patterned sequences, sort and rank data, and sum
 
 > **At a glance – Chapter ROADMAP**
 > 
-> Section \@ref(patterned_numeric_vectors_creation) & Section \@ref(char-concatenate). **Patterned Vectors**: Create repeating or patterned numeric and character sequences.  
+> Section \@ref(patterned-numeric-vectors-creation) & Section \@ref(char-concatenate). **Patterned Vectors**: Create repeating or patterned numeric and character sequences.  
 > Section \@ref(numeric-sort-rank-order) & Section \@ref(character-sort-rank-order). **Ordering**: Sort, rank, and order numeric and character vectors.  
 > Section \@ref(numeric-vector-statistics). **Statistics**: Calculate descriptive statistics for vectors.  
 > Section \@ref(factors). **Factors**: Understand when and how to categorical data using factors.  
