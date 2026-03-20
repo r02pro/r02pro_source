@@ -96,7 +96,7 @@ Although the console may work well for some quick calculations, you need to reso
 
 ***d. Editor***
 
-The **Editor** panel is the go-to place to write complicated R codes, which you can save as R files for repeated use in the future. Several kinds of files are available in RStudio. In particular, **R script** and **R Markdown**  are the two most common file formats. We will start with R script since it is the simplest format. In Chapter \@ref(r-markdown), we will introduce R Markdown in detail.
+The **Editor** panel is the go-to place to write complicated R codes, which you can save as R files for repeated use in the future. Several kinds of files are available in RStudio. In particular, **R script** and **R Markdown**  are the two most common file formats. We will start with R script since it is the simplest format. In Chapter \@ref(intro-r-markdown), we will introduce R Markdown in detail.
 
 In the editor panel, you may notice that RStudio has created a file by default (Figure \@ref(fig:P1)). The default file RStudio provided is **R script**.
  
@@ -139,7 +139,7 @@ knitr::include_graphics("pics/1save3.png")
 
 Now, when you close this script and open it again, you would directly see the previous three lines of codes.
 
-Lastly, if you want to create a new R script, you can click the `+` button on the menu, then select *R Script*. Note that there are quite a few other options including *R Markdown*, which will be introduced in Chapter \@ref(r-markdown). 
+Lastly, if you want to create a new R script, you can click the `+` button on the menu, then select *R Script*. Note that there are quite a few other options including *R Markdown*, which will be introduced in Chapter \@ref(intro-r-markdown). 
 
 ```{r new, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="create a new script (I)", out.width = '70%'}
 knitr::include_graphics("pics/1new.png")

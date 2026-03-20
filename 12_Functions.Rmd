@@ -14,6 +14,7 @@ After completing this chapter, you will be able to:
 In theory, you can already write very complicated codes, accomplishing a lot of data analysis tasks. In this chapter, you will learn a very powerful tool, **functions**.
 
 > **At a glance – Chapter ROADMAP**
+> 
 > Section \@ref(intro-functions). **Defining Functions**: Learn to create custom, reusable blocks of code with arguments and return values.  
 > Section \@ref(functions-advanced) & Section \@ref(anonymous-and-scoping). **Advanced Concepts**: Master anonymous functions, nested functions, and understand variable scoping rules in R.  
 > Section \@ref(apply-purrr). **Functional Programming**: Use the `apply` family and `purrr` for cleaner, more efficient iteration over lists and data frames.  

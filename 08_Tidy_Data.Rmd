@@ -14,6 +14,7 @@ After completing this chapter, you will be able to:
 In the past several chapters, you have learned a lot in data visualization, data import and export, and data manipulation. All the data you have seen so far share a very attractive property, namely, they are all *tidy*. So, what is the so called **tidy data**?  Following the definition in @wickham2016r, tidy data has the following three interrelated properties.
 
 > **At a glance – Chapter ROADMAP**
+> 
 > Section \@ref(tidy-name-value). **Pivoting**: Reshape data between long and wide formats to achieve TIDY structure.  
 > Section \@ref(separate-unite-columns). **Splitting & Merging**: Separate one column into multiple or unite multiple into one.  
 > Section \@ref(more-on-missing-values). **Missing Values**: Master advanced techniques for identifying, filling, and handling `NA` values.

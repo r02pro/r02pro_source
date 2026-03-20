@@ -18,6 +18,7 @@ Object assignment (Chapter \@ref(Object-Assignment)) gave you the power to name 
 Chapter \@ref(r-objects) is about mastering those building blocks. You will learn how to create vectors from scratch, reshape them into useful patterns, and apply R's vectorized operations confidently. Along the way you will discover how R stores different kinds of information—numbers, text, logical flags, dates, and more—and how to keep those types straight as you analyze data.
 
 > **At a glance – Chapter ROADMAP**
+> 
 > Section \@ref(intro-num-vector). **Numeric vectors**: Create numeric sequences, recycle values, and perform arithmetic in a vectorized way.  
 > Section \@ref(intro-char-vector), Section \@ref(char-concatenate), Section \@ref(character-sort-rank-order), Section \@ref(factors). **Character vectors**: Build strings, concatenate text, sort or reorder labels, and decide when to convert them to factors.  
 > Section \@ref(intro-logi-vector) & Section \@ref(logical-operators). **Logical vectors**: Record yes/no information, combine conditions, and use logical indexing.  

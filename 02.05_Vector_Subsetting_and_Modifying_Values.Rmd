@@ -54,7 +54,7 @@ attr(x_w_name, "names")
 ```
 
 
-### Vector subsetting
+### Vector subsetting {#vector-subsetting}
 
 Now, let's delve into this section's main focus: vector subsetting. At some point of your analysis of a vector with more than 1 element, you may want to extract particular elements to constitute a new vector. In R, the new vector is considered as a **subvector** of the original vector. This process is called **vector subsetting**, and the subvector will be of the **same type** as the original one. 
 

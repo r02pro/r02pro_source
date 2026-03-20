@@ -27,6 +27,7 @@ The goal of our solver is to write a function that take the four integers as the
 Let's break down the target function into several sub-functions and work on them in the next few subsections.
 
 > **At a glance – Chapter ROADMAP**
+> 
 > Section \@ref(permutation-operator). **Combinatorics**: Generate all possible permutations of numbers and sequences of operators.  
 > Section \@ref(composite-operator). **Logic Setup**: Define how multiple operations are combined and checked against the target result.  
 > Section \@ref(solve24). **Final Assembly**: Build the complete `solve_24()` function to automatically find solutions for any four given numbers.
