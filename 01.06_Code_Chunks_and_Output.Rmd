@@ -21,18 +21,6 @@ plot(pressure)
 
 When you provide `fig.cap`, the figure is automatically numbered and can be cross-referenced with `\@ref(fig:my-plot)` in bookdown.
 
-### Caching
-
-For code chunks that take a long time to run (e.g., fitting complex models or processing large datasets), you can use **caching** to save the results so they are not recomputed every time you knit.
-
-````markdown
-`r ''````{r slow-computation, cache=TRUE}
-# This chunk will only run once; results are cached
-result <- replicate(10000, mean(rnorm(1000)))
-```
-````
-
-Be cautious with caching: if the data or code that a cached chunk depends on changes, the cached result may be stale. You can use `cache.extra` or `dependson` options to manage dependencies.
 
 ### Controlling Output
 
@@ -75,10 +63,8 @@ Individual chunks can still override these global settings as needed.
 
 ### Exercises
 
-1. Create an R Markdown document that produces a scatterplot with a caption. Use `fig.cap`, `fig.width = 8`, and `fig.align = "center"`.
+1. Create an R Markdown document that produces a scatterplot with a caption using `plot(pressure)`. Use `fig.cap`, `fig.width = 8`, and `fig.align = "center"`.
 
-2. Write a code chunk that simulates drawing 100,000 random numbers from a normal distribution and computing their mean. Enable caching with `cache = TRUE`. Knit the document twice and observe the speed difference.
+2. Write a code chunk that assigns `x <- 10` and `y <- 20` and calculates their sum (`x + y`). Use the chunk option `echo = FALSE` to only show the result.
 
-3. Create a code chunk that produces a formatted table using `knitr::kable()` with `results = "asis"`. Verify that the table renders correctly in the knitted output.
-
-4. Write a paragraph that uses inline R code to calculate and report the value of `exp(3) / log(20, 3) * 7`. The number should evaluate directly within the text.
+3. Write a paragraph that uses inline R code to calculate and report the value of `exp(3) / log(20, 3) * 7`. The number should evaluate directly within the text.

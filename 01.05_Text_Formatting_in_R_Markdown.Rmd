@@ -146,70 +146,26 @@ $$ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} $$
 
 ### Tables: From Simple to Stunning
 
-While you can write tables by hand in Markdown, it's far more powerful to generate them with R. The `knitr::kable()` function is your starting point.
+You can create simple tables using Markdown syntax. For example:
 
-For a simple table, you can create a data frame in R:
-
-```{r basic-table, echo=TRUE}
-df <- data.frame(
-  Statistic = c("Mean", "Median", "Standard Deviation"),
-  R_Function = c("`mean()`", "`median()`", "`sd()`"),
-  Description = c("The average value", "The middle value", "A measure of spread")
-)
-knitr::kable(df, caption = "Common Descriptive Statistics in R")
+```markdown
+| Operator | Description    |
+|----------|----------------|
+| `+`      | Addition       |
+| `-`      | Subtraction    |
+| `*`      | Multiplication |
+| `/`      | Division       |
 ```
 
-**Power-Up with `kableExtra`:** For truly publication-quality tables, the **kableExtra** package is a must-have. It allows for advanced styling.
+| Operator | Description    |
+|----------|----------------|
+| `+`      | Addition       |
+| `-`      | Subtraction    |
+| `*`      | Multiplication |
+| `/`      | Division       |
 
-```{r kableExtra-table, echo=TRUE}
-# You may need to run this once in your Console: install.packages("kableExtra")
-library(kableExtra)
+In later chapters, you will learn how to automatically generate tables from your data using R functions.
 
-# Let's show some fun facts about planets
-planets_df <- data.frame(
-  Planet = c("Mercury", "Earth", "Mars", "Jupiter"),
-  Type = c("Terrestrial", "Terrestrial", "Terrestrial", "Gas Giant"),
-  Moons = c(0, 1, 2, 95),
-  `Gravity (m/s^2)` = c(3.7, 9.8, 3.7, 24.8),
-  check.names = FALSE
-)
-
-kable(planets_df, caption = "Fun Facts About Our Solar System Neighbors") %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE) %>%
-  column_spec(2, bold = TRUE) %>%
-  add_header_above(c(" " = 1, "Classification" = 1, "Satellites" = 2))
-```
-This will create a table with a header row and some styling applied.
-
-
-### Insert citations and manage bibliographies in R Markdown
-
-R Markdown provides us the capability to add bibliography and manage citations with ease, similar to writing a LaTex document. To add citations, you first need to add the bibliography filed in the YAML head. If your references are in the file "references.bib", you can set the bibliography file as follows.
-
-```
----
-output: html_document
-bibliography: references.bib  
----
-```
-The .bib file is a plain-text file that consists of bibliography entries like the following:
-
-```
-@book{r02pro,
-  title = {R Programming: From Zero to Pro},
-  author = {Yang Feng},
-  organization = {New York University},
-  address = {New York, NY},
-  year = {2024},
-  url = {https://r02pro.github.io/},
-}
-```
-
-
-Then, each bibtex items can be cited directly within the documentation using the syntax `@key`, where key is the citation key in the first line of the entry, e.g., `@r02pro` will show as @r02pro in the document. To put citations in parentheses, use `[@key]`. To cite more than one items, separate the keys by semicolons, e.g., `[@key-a; @key-b; @key-c]`. To suppress the author name, you can add a minus sign before @, e.g., `[-@r02pro]` will generate [-@r02pro].
-
-
-To learn more about citations and bibliography in R Markdown, you can read the excellent book by @xie2020r..
 
 
 ### Your Turn: A Mini-Challenge

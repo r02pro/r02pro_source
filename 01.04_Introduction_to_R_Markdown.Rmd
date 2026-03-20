@@ -91,7 +91,7 @@ A **code chunk** is basically a collection of R codes surrounded by the chunk de
 knitr::include_graphics("pics/10codechunck.png")
 ```
 
-In this code chunk, there is only one line of code `summary(cars)` which will output the summary statistics of the `cars` data set. If necessary, you can include any lines of codes inside each code chunk. Each chunk can be viewed as a unit that usually serves a particular purpose. Inside each code chunk, you can run the codes **line by line** by the keyboard shortcut Cmd + Enter / Ctrl + Enter. However, it is often more convenient to run the codes **all at once** using the keyboard shortcut Shift + Cmd + Enter / Shift + Ctrl + Enter, or press the Green arrow on the right of the code chunk. 
+In this code chunk, there is only one line of code `1 + 2` which will output the result `3`. If necessary, you can include any lines of codes inside each code chunk. Each chunk can be viewed as a unit that usually serves a particular purpose. Inside each code chunk, you can run the codes **line by line** by the keyboard shortcut Cmd + Enter / Ctrl + Enter. However, it is often more convenient to run the codes **all at once** using the keyboard shortcut Shift + Cmd + Enter / Shift + Ctrl + Enter, or press the Green arrow on the right of the code chunk. 
 
 Then you will see both R code and the result from the output document by default.
 ```{r re, results=TRUE, echo=FALSE, fig.align = 'center', fig.cap="R code and the result", out.width = '90%'}
@@ -137,7 +137,7 @@ Lastly, if you have many code chunks that share some chunk options, it is very u
 knitr::include_graphics("pics/10global.png")
 ```
 
-In this example, we set `echo = TRUE` and `warning = FALSE`. You can feel free to change their values and add other kinds of customization. In each subsequent chunk, this set of global chunk options will be inherited. Of course, you can add additional options in each chunk to add additional chunk options or overwrite the global chunk options. This may be reminiscent of the relationship between global and local aesthetic mappings introduced in Section \@ref(multi-geom).
+In this example, we set `echo = TRUE` and `warning = FALSE`. You can feel free to change their values and add other kinds of customization. In each subsequent chunk, this set of global chunk options will be inherited. Of course, you can add additional options in each chunk to add additional chunk options or overwrite the global chunk options.
 
 ### Exercises
 
