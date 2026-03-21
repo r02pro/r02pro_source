@@ -1,4 +1,4 @@
-# R Objects (II): Other Types {#object-other-type}
+# R Objects (III): Other Types {#object-other-type}
 
 ::: {.objectives}
 **Learning Objectives**

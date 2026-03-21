@@ -115,7 +115,7 @@ I hope you agree that this looks more intepretable, with each line corresponding
 
 From now on, we will be extensively using the pipe operator `%>%` to make the code more readable.
 
-### Exercise
+### Exercises
 
 
 

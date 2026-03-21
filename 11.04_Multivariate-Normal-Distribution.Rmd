@@ -141,7 +141,7 @@ cor(x)[1, 2]
 
 You can see that the sample correlation matrix include all the pairwise sample correlations between any of the two columns.
 
-### Exercise
+### Exercises
 
 1. Generate 500 observations from a bivariate normal distribution with:
    - Mean vector ${\bf \mu} = (3, 5)^T$

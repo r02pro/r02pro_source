@@ -1,53 +1,89 @@
 ## Interactive Plot with `plotly()` {#plotly}
 
-Until now, all the plots we created are all static. In this section, we will introduce a powerful tool named `plotly()` that can make interactive plots. If you haven't done so, you need to first install the R package **plotly**. 
+Until now, all the plots we created are static. In this section, we will introduce a powerful tool named `plotly()` that can make interactive plots. If you haven't done so, you need to first install the R package **plotly**.
 
 ```{r, eval = FALSE}
 install.packages("plotly")
 ```
 
-Let's start with a static scatterplot and make it interactive. 
+### Converting ggplot2 plots with `ggplotly()`
+
+The easiest way to create interactive plots is to convert an existing **ggplot2** plot using `ggplotly()`. Let's start with a static scatterplot and make it interactive.
 
 ```{r}
 library(r02pro)
 library(ggplot2)
 library(plotly)
-my_plot <- ggplot(data = gm2004) + 
-    geom_point(mapping = aes(x = sugar, 
+my_plot <- ggplot(data = gm2004) +
+    geom_point(mapping = aes(x = sugar,
                              y = cholesterol))
-ggplotly(my_plot)                           
+ggplotly(my_plot)
 ```
 
-Upon a first look, this may look identical to a regular scatterplot. However, you can try to move your cursor to the points which will show the corresponding coordinates. Some other features offered are available via a bar of buttons on the top right of the plot. Some useful features include 
+Upon a first look, this may look identical to a regular scatterplot. However, you can try to move your cursor to the points which will show the corresponding coordinates. Some other features offered are available via a bar of buttons on the top right of the plot. Some useful features include
 
-- Download plot as png. 
+- Download plot as png.
 - Zoom: Zoom a region of the plot.
-- Pan: Move the plot around. 
+- Pan: Move the plot around.
 
+### Interactive plots with aesthetics
 
-In addition to the vanilla scatterplots, you can use plotly with more complicated plots that involves aesthetics. 
+In addition to the vanilla scatterplots, you can use plotly with more complicated plots that involve aesthetics.
 
 ```{r}
-my_plot_continent <- ggplot(data = gm2004) + 
-    geom_point(mapping = aes(x = sugar, 
+my_plot_continent <- ggplot(data = gm2004) +
+    geom_point(mapping = aes(x = sugar,
                              y = cholesterol,
                              color = continent))
-ggplotly(my_plot_continent)   
+ggplotly(my_plot_continent)
 ```
 
-Now, you can easily see the `continent` in addition to the `sugar`and `cholesterol` values for each data point. 
+Now, you can easily see the `continent` in addition to the `sugar` and `cholesterol` values for each data point.
 
-Let's try to use plotly with some other types of plots. 
+### Customizing hover text with `tooltip`
+
+By default, `ggplotly()` displays all mapped aesthetics when you hover over a point. You can control which aesthetics appear in the tooltip using the `tooltip` argument.
 
 ```{r}
-my_box_plot <- ggplot(data = na.omit(sahp), 
-            aes(x = house_style, 
+my_plot_tooltip <- ggplot(data = gm2004) +
+    geom_point(mapping = aes(x = sugar,
+                             y = cholesterol,
+                             color = continent,
+                             text = country))
+ggplotly(my_plot_tooltip, tooltip = c("text", "x", "y"))
+```
+
+Here, we mapped the `country` variable to the `text` aesthetic and told `ggplotly()` to only show `text`, `x`, and `y` in the tooltip. This is useful when you want to display additional information beyond the x and y coordinates.
+
+### Interactive boxplots
+
+Let's try to use plotly with some other types of plots.
+
+```{r}
+my_box_plot <- ggplot(data = na.omit(sahp),
+            aes(x = house_style,
                 y = sale_price)) +
   scale_x_discrete(limits=c("1Story", "2Story")) + geom_boxplot(mapping = aes(color = oa_qual > 5))
-ggplotly(my_box_plot) 
+ggplotly(my_box_plot)
 ```
 
 For boxplots, we can easily see the values of summary statistics. You are welcome to try out plotly on other types of plots.
+
+### Saving interactive plots
+
+Interactive plots created with **plotly** are HTML widgets. You can save them as standalone HTML files using the `htmlwidgets::saveWidget()` function.
+
+```{r, eval = FALSE}
+library(htmlwidgets)
+my_interactive <- ggplotly(my_plot)
+saveWidget(my_interactive, "my_interactive_plot.html")
+```
+
+The saved HTML file can be opened in any web browser and shared with others — no R installation required.
+
+::: {.infobox .caution data-latex="{caution}"}
+Interactive plots created with **plotly** only work in HTML output (e.g., the gitbook format). They will not render in PDF or other static formats. If you need to include plots in a PDF document, use static **ggplot2** plots instead.
+:::
 
 In this section, we introduced the **plotly** package for creating interactive plots. The `ggplotly()` function provides a convenient way to convert any static **ggplot2** plot into an interactive one, enabling features like hovering to see data values, zooming, and downloading as PNG.
 
@@ -57,4 +93,8 @@ In this section, we introduced the **plotly** package for creating interactive p
 
 2. Enhance the plot from Exercise 1 by mapping `house_style` to the `color` aesthetic. Hover over points to verify that the house style information is displayed.
 
-3. Create an interactive violin plot of `cholesterol` grouped by `continent` using the `gm2004` dataset. Restrict to three continents of your choice.
+3. Create an interactive scatterplot of `sugar` vs. `cholesterol` from the `gm2004` dataset, and customize the tooltip to display the `country` name along with the x and y values.
+
+4. Create an interactive violin plot of `cholesterol` grouped by `continent` using the `gm2004` dataset. Restrict to three continents of your choice.
+
+5. Save the interactive plot from Exercise 3 as an HTML file named `"gm_interactive.html"` using `htmlwidgets::saveWidget()`.

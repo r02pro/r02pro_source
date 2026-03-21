@@ -97,7 +97,7 @@ read_csv("x,y,z
 
 You can see from the output tibble that all the missing values are now denoted as `NA`.
 
-::: {.infobox .caution data-latex=""} 
+::: {.infobox .caution data-latex="{caution}"}
 Note that the quotation marks around 999 and -999 are necessary since the `na` argument is expecting a character vector.
 
 ```{r, error=TRUE}

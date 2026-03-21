@@ -118,7 +118,7 @@ safe_division(10, 0)  # Error
 
 Here, the function `safe_division()` checks if the divisor `b` is zero and raises an error if division by zero is attempted. This prevents the function from returning an incorrect result or crashing due to invalid input.
 
-### Exercise
+### Exercises
 
 1. Write a function `log_transform()` that takes a numeric vector and a base for the logarithm. The function should handle cases where the input contains non-positive values by returning an error message.
 

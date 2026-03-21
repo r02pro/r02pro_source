@@ -102,7 +102,7 @@ As we can see from this table, all random number generator functions are formed 
 
 Let's do some statistical exercises with those distributions.
 
-### Exercise
+### Exercises
 
 1. For $\text{Binomial}(10, 0.5)$, 
 

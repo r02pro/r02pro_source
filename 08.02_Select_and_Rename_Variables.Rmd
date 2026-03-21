@@ -122,7 +122,7 @@ gm %>%
 This produces a tibble with `country` and `continent` as the first two columns, followed by the remaining variables in the same order as in the original tibble.
 
 
-### Exercise
+### Exercises
 
 Using the `ahp` dataset and the pipe operator for the following exercises.
 

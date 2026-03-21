@@ -93,7 +93,7 @@ sample(c(0, 1),
 
 Here, you will samples 100 elements with replacement from `c(0,1)` , and the probability of drawing 0 is 0.8, the probability of drawing 1 is 0.2. 
 
-### Exercise
+### Exercises
 
 1. Randomly permute the vector `x <- 1:20`. Set the `seed = 66` and verify that the permutation is reproducible.
 2. Create a random sample of 5 elements from the vector `letters` without replacement.

@@ -1,6 +1,17 @@
 ## Exporting to and Importing from SPSS, SAS, and Stata Files  {#import-other}
 
-Now, you know how to export and import data from delimited files and Excel files. In the section, you will learn how to export and import data from other statistical software including SPSS, SAS, and Stata. We will use the package **haven**, another member of the **tidyverse** family.
+Now, you know how to export and import data from delimited files and Excel files. In this section, you will learn how to export and import data from other statistical software including SPSS, SAS, and Stata. We will use the package **haven**, another member of the **tidyverse** family.
+
+The following table summarizes the key functions in the **haven** package.
+
+```{r havenSummary, echo = FALSE, results = TRUE}
+Software <- c("SPSS", "SPSS", "SAS", "SAS", "Stata", "Stata")
+Action <- c("Export", "Import", "Export", "Import", "Export", "Import")
+Function <- c("`write_sav()`", "`read_spss()`", "`write_sas()`", "`read_sas()`", "`write_dta()`", "`read_dta()`")
+Extension <- c(".sav", ".sav / .por", ".sas7bdat", ".sas7bdat", ".dta", ".dta")
+d <- data.frame(Software, Action, Function, Extension)
+knitr::kable(d, caption = "Summary of haven Functions for Statistical Software Files")
+```
 
 ### Export and Import SPSS Files
 
@@ -12,11 +23,11 @@ library(haven)
 dig_num <- 7:1
 ani_char <- c("sheep", "pig", "monkey", "pig", "monkey", NA, "pig")
 conditions <- c("Excellent", "Good", NA, "Fair", "Good", "Good", "Excellent")
-my_animals<- tibble(dig_num, ani_char,conditions)
+my_animals <- tibble(dig_num, ani_char, conditions)
 my_animals
 ```
 
-The data frame `my_animals` will be used as in Section \@ref(export-data). You can use the function `write_sav()` to export a data frame into a SPSS .sav file. 
+The data frame `my_animals` will be used as in Section \@ref(export-data). You can use the function `write_sav()` to export a data frame into a SPSS .sav file.
 
 ```{r, eval=FALSE}
 write_sav(my_animals, "data/my_animals.sav")
@@ -29,10 +40,14 @@ my_animals_spss <- read_spss("data/my_animals.sav")
 head(my_animals_spss)
 ```
 
+::: {.infobox .caution data-latex="{caution}"}
+You may notice that the imported data has additional type information (e.g., `<chr>` appears as `<chr+lbl>`). This is because SPSS files can store **value labels** — metadata that maps values to descriptive labels. The **haven** package preserves this metadata using a special `labelled` class. You can convert labelled columns to regular R types using `as_factor()` (for labelled factors) or `zap_labels()` (to remove labels entirely).
+:::
+
 
 ### Export and Import SAS Files
 
-You can use the function `write_sas()` to export a data frame into a SAS .sas7bdat file. 
+You can use the function `write_sas()` to export a data frame into a SAS .sas7bdat file.
 
 ```{r, eval=FALSE}
 write_sas(my_animals, "data/my_animals.sas7bdat")
@@ -45,10 +60,14 @@ my_animals_sas <- read_sas("data/my_animals.sas7bdat")
 head(my_animals_sas)
 ```
 
+::: {.infobox .caution data-latex="{caution}"}
+SAS has a maximum variable name length of 32 characters. If your R data frame has column names longer than 32 characters, `write_sas()` will truncate them. Make sure to check your column names before exporting to SAS.
+:::
+
 
 ### Export and Import Stata Files
 
-Lastly, let's talk about Stata files. You can use the function `write_dta()` to export a data frame into a Stata .dta file. 
+Lastly, let's talk about Stata files. You can use the function `write_dta()` to export a data frame into a Stata .dta file.
 
 ```{r, eval=FALSE}
 write_dta(my_animals, "data/my_animals.dta")
@@ -61,13 +80,18 @@ my_animals_stata <- read_dta("data/my_animals.dta")
 head(my_animals_stata)
 ```
 
+::: {.infobox .caution data-latex="{caution}"}
+Stata variable names cannot contain special characters (such as `.` or spaces) and must be 32 characters or fewer. The `write_dta()` function will return an error if column names do not meet these requirements. You can rename columns using `names()` or `dplyr::rename()` before exporting.
+:::
 
 
 ### Import using the menu
 
-Similarly as Sections \@ref(import-data) and \@ref(import-excel), you can also use the menu in Table \@ref(tab:importMenu) to import SPSS, SAS, and Stata Files. 
+Similarly as Sections \@ref(import-data) and \@ref(import-excel), you can also use the menu in Table \@ref(tab:importMenu) to import SPSS, SAS, and Stata Files.
 
-### Exercise
+### Exercises
 
 1. Export the first 8 observations in the `sahp` dataset (in **r02pro** package) to SPSS, SAS, and Stata file formats, respectively.
-2. Import the files from Q1 to R and verify their contents. 
+2. Import the files from Q1 to R and verify their contents.
+3. Import the SPSS file from Q1 and use `str()` to inspect the structure. What differences do you notice compared to the original `sahp` data?
+4. Try exporting a data frame with a column name longer than 32 characters to a SAS file. What happens?
