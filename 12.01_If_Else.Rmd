@@ -107,6 +107,12 @@ logi_1 && logi_2  # Returns FALSE
 logi_1 || logi_2  # Returns TRUE
 ```
 
+::: {.infobox .caution data-latex="{caution}"}
+**Common pitfall.** Use `&&` and `||` **only** in `if` / `else` conditions, where you need a single `TRUE`/`FALSE` answer. For data operations that should apply to every row of a vector or data frame — such as inside `filter()` — always use the single-character versions `&` and `|`. Writing `filter(df, x == 1 || y == 2)` will silently return the wrong rows because `||` collapses to a single logical value. Write `filter(df, x == 1 | y == 2)` instead.
+
+Starting with R 4.3.0, using `&&` or `||` on vectors of length greater than one raises an error, which helps catch this mistake.
+:::
+
 #### Short-Circuit Evaluation
 
 Short-circuit evaluation with `&&` and `||` avoids unnecessary computation. Consider the following example:

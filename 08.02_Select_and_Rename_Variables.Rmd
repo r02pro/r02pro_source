@@ -4,7 +4,7 @@ In Section \@ref(filter-observations), we have learned how to filter observation
 
 ### Select Variables via Names
 
-Let's consider the `gm` data set in the **r02pro** package, which contains `r ncol(gm)` variables. If we want to focus on the country, continent, year, and Human Development Index (HDI) category, we can use the `select()` function in the **dplyr** package. We will be using the pipe operator introduced in Section \@ref(pipe) throughout the rest of this Chapter. Inside the `select()` function, you can include the variables to select as different arguments. Note that the quotation marks are not necessary. 
+Let's consider the `gm` data set in the **r02pro** package, which contains 33 variables. If we want to focus on the country, continent, year, and Human Development Index (HDI) category, we can use the `select()` function in the **dplyr** package. We will be using the pipe operator introduced in Section \@ref(pipe) throughout the rest of this Chapter. Inside the `select()` function, you can include the variables to select as different arguments. Note that the quotation marks are not necessary. 
 
 ```{r}
 library(r02pro)

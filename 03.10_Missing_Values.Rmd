@@ -67,13 +67,13 @@ NA == NA
 It is again `NA`, which may be confusing at a first thought. However, keep in mind that since both `y` and `z` are not available, there is no way to tell whether they are the same. Hence `y == z` is also `NA`.
 
 ::: {.infobox .caution data-latex="{caution}"}
-1. Think about what is the value of 1^NA^ in R. Try to run it in R. Does it agree with your thoughts? 
+1. Think about what the value of `1^NA` is in R. Try to run it in R. Does it agree with your thoughts?
 
-2. Think about what is the value of 0^NA^ in R. Try to run it in R. Does it agree with your thoughts? 
+2. Think about what the value of `0^NA` is in R. Try to run it in R. Does it agree with your thoughts?
 
-- Answer 1. For any $x$, we have $1^x = \exp(\log (1^x)) = \exp(x \log 1) = \exp(x \cdot 0) = 1$. Since there is no uncertainty regarding the expression, the value of 1^NA^ is 1 
-- Answer 2. We have $0^0 = \lim_{x\to 0}x^x =\exp[\lim_{x\to 0} x\log(x)]=\exp[0] = 1$, and $0^1 = 0$. Since `NA` represents uncertainty values, it can be 0 or 1 or other numbers. So 0^NA^ is not deterministic because it can take different values according to the exponent. Hence, the value of 0^NA^ is also `NA`.
-::: 
+- *Answer 1.* For any $x$, we have $1^x = \exp(\log (1^x)) = \exp(x \log 1) = \exp(x \cdot 0) = 1$. Since there is no uncertainty regarding the expression, the value of `1^NA` is `1`.
+- *Answer 2.* We have $0^0 = \lim_{x\to 0}x^x =\exp[\lim_{x\to 0} x\log(x)]=\exp[0] = 1$, and $0^1 = 0$. Since `NA` represents uncertain values, the exponent could be 0, 1, or something else, so the result is not deterministic. Hence, the value of `0^NA` is `NA`.
+:::
 
 
 Now, let's talk about what impact the `NA` values make when we apply statistical functions. Let's create a vector containing `NA` values, and apply some functions on it.

@@ -9,8 +9,10 @@ At this point,  we have introduced three types of atomic vectors: numeric (Secti
 
 ### Coercion with `c()`
 
-When we supply arguments of different types in the `c()` function, R will *unify* all elements into the **most complex type**, which is usually called the **coercion rule**. Specifically, R uses the following order of complexity (from simple to complex). 
-$$\mbox{logical} < \mbox{numeric} < \mbox{character}$$
+When we supply arguments of different types in the `c()` function, R will *unify* all elements into the **most general type**, which is usually called the **coercion rule**. "More general" means: a type that can represent every value of the simpler types. For example, every logical value (`TRUE` or `FALSE`) can be written as a number (`1` or `0`), and every number can be written as a string (`"1"`, `"0"`). The other direction is not possible — not every string is a number, and not every number is a logical value — so R always coerces toward the more general type.
+
+The order of generality, from most specific to most general, is:
+$$\mbox{logical} \;\rightarrow\; \mbox{numeric} \;\rightarrow\; \mbox{character}$$
 
 Let's see a few examples to learn how the coercion works. The first example mixes logical values with numbers. 
 

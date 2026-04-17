@@ -19,7 +19,13 @@ gm %>%
 ```
 
 
-Note that here we use the `n()` function to count the number of countries. The `mean()` function computes the average of the population, and the `median()` function computes the median of the GDP per capita. The `na.rm = TRUE` argument is used to remove the missing values when computing the average and median. 
+Note that here we use the `n()` function to count the number of countries. The `mean()` function computes the average of the population, and the `median()` function computes the median of the GDP per capita. The `na.rm = TRUE` argument is used to remove the missing values when computing the average and median.
+
+::: {.infobox .caution data-latex="{caution}"}
+**Why `na.rm = TRUE` matters.** By default, most summary functions in R (including `mean()`, `median()`, `sum()`, `var()`, `sd()`) return `NA` if the input contains even a single missing value. Real-world data almost always has some `NA`s, so forgetting `na.rm = TRUE` is a common cause of surprising `NA` results in reports. If you only want to summarize the non-missing observations, remember to set `na.rm = TRUE`.
+
+**American vs. British spelling.** The dplyr package accepts both `summarize()` (American) and `summarise()` (British) — they are identical. We use `summarize()` throughout this book for consistency.
+:::
 
 ### Create Grouped Summaries
 

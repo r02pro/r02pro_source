@@ -203,7 +203,7 @@ ggplot(data = gm2004) +
   scale_x_continuous(trans = "log10")
 ```
 
-Although the two figures look visually identical, the log-scale plot may be more intuitive to interpret than the plot on the transformed variable on the x-axis. 
+Although the two figures look visually identical, the log-scale plot is often easier to interpret because the axis tick labels stay on the **original scale** of the variable (e.g., $1{,}000$, $10{,}000$, $100{,}000$) rather than showing transformed values ($3$, $4$, $5$). Readers can therefore map tick marks back to the real-world quantity without mentally undoing the logarithm.
 
 
 ### Coordinate Flip
