@@ -1,6 +1,8 @@
 ## Filter Observations, Objects Masking, and the Pipe {#filter-observations}
 
-Let's start with the first task outlined at the beginning of this chapter. Suppose we want to find the observations that represent countries in Europe (`continent`), years between 2006 and 2010 (`year`), and Low Human Development Index (`HDI_category`). You can use the function `filter()` in the **dplyr** package, a member of the **tidyverse** package. If you haven't installed the **tidyverse** package, you need to install it. Let's first load the **dplyr** package. 
+In Section \@ref(subset-df), you learned how to subset a data frame using the bracket syntax `df[rows, cols]`. That works, but for common filtering tasks it quickly becomes verbose and hard to read. The **dplyr** package provides a cleaner, more readable alternative: the `filter()` function.
+
+Let's start with the first task outlined at the beginning of this chapter. Suppose we want to find the observations that represent countries in Europe (`continent`), years between 2006 and 2010 (`year`), and Low Human Development Index (`HDI_category`). You can use the function `filter()` in the **dplyr** package, a member of the **tidyverse** package. If you haven't installed the **tidyverse** package, you need to install it. Let's first load the **dplyr** package.
 
 ```{r, echo = TRUE, results = TRUE, message=TRUE, warning=TRUE, tidy = TRUE}
 library(dplyr)
@@ -19,7 +21,7 @@ The following objects are masked from ‘package:stats’:
 
 The message appears because **dplyr** contains the functions `filter()` and `lag()` which are already defined and preloaded in the R package **stats**. As a result, the original functions  are masked by the new definition in **dplyr**. 
 
-In this scenario when the same function name is shared by multiple packages, we can add the package name as a prefix to the function name with *double colon* (`::`). For example, `stats::filter()` represents the `filter()` function in the **stats** package, while `dplyr::filter()` represents the `filter()` function in the **dplyr** package. You can also look at their documentations.
+In this scenario when the same function name is shared by multiple packages, we can add the package name as a prefix to the function name with *double colon* (`::`). For example, `stats::filter()` represents the `filter()` function in the **stats** package, while `dplyr::filter()` represents the `filter()` function in the **dplyr** package. You can also look at their documentations (make sure that both **stats** and **dplyr** are available — **stats** is loaded automatically with R, and **dplyr** was loaded above).
 
 ```{r, eval=FALSE}
 ?stats::filter

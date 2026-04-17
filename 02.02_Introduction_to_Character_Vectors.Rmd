@@ -107,7 +107,7 @@ upper_strings <- toupper(four_strings)
 upper_strings
 ```
 
-### Review of getting help in R
+### A Deeper Look at R Help Documentation
 
 In Section \@ref(get-help), we introduced three common ways to get help in R, which can help you know more about a particular function. In this section, we will review these methods by taking `toupper` and `tolower` as examples.
 

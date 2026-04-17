@@ -102,6 +102,13 @@ roll_dice <- function(n) {
 roll_dice(10)
 ```
 
+Because `sample()` draws random values, you will get different results every time you call `roll_dice(10)`. To make the output **reproducible**, call `set.seed()` with any integer right before the function call — every reader who runs the same seed will obtain the same rolls.
+
+```{r}
+set.seed(123)
+roll_dice(10)
+```
+
 ### Project: Get Fibonacci Sequence
 
 This project demonstrates how to create a function that generates a Fibonacci sequence up to a specified upper bound.

@@ -36,6 +36,46 @@ Let’s code, analyze, and explore the world of data—together.
 
 If you are an instructor and would like to use this book in your course, we are happy to provide the solutions to the exercises. Please email me at yang.feng@nyu.edu.
 
+# How to Use This Book {-}
+
+### Who this book is for {-}
+
+This book assumes **no prior programming experience**. If you've never written a line of code before, you are in the right place — we start from installing R and progress gradually. Readers with programming experience in other languages (Python, MATLAB, SAS, SPSS, or Stata) will find the book familiar; feel free to skim Chapters 1–3 and focus on the tidyverse workflow starting in Chapter 5.
+
+A basic familiarity with algebra and descriptive statistics (means, medians, percentages) is helpful but not required. We introduce more advanced statistical ideas gently as they come up.
+
+### What you will be able to do {-}
+
+By the end of this book, you will be able to:
+
+- Install and configure R, RStudio, and R packages on your own computer.
+- Create and manipulate R's core data structures: atomic vectors, matrices, lists, data frames, and tibbles.
+- Import data from CSV, Excel, SPSS, SAS, and Stata files.
+- Produce publication-quality static and interactive graphics with **ggplot2** and **plotly**.
+- Wrangle and tidy data using the **dplyr** and **tidyr** verbs (`filter()`, `select()`, `mutate()`, `summarize()`, `pivot_longer()`, etc.).
+- Work with strings and regular expressions.
+- Apply fundamental statistical methods (distributions, hypothesis tests, linear regression).
+- Write your own functions, handle errors, and organize code with control flow.
+- Produce reproducible reports in R Markdown and Quarto.
+
+### How chapters are organized {-}
+
+Most chapters follow the same structure:
+
+1. A short **chapter overview** with learning objectives and a roadmap of the sections.
+2. **Sections** that introduce concepts step-by-step with runnable code.
+3. **Caution boxes** that highlight common pitfalls or subtle points.
+4. **Exercises** at the end of every section, designed for active practice.
+
+Chapters 1 through 7 form a sequential foundation — please read them in order. From Chapter 8 onward, the chapters can be read more independently, though the tidyverse chapters (8–10) are the most useful next step after the visualization chapters.
+
+### Conventions {-}
+
+- Package names appear in **bold** (e.g., **r02pro**, **ggplot2**).
+- Inline code, function names, and variables appear in `monospace` font (e.g., `1 + 2`, `mean()`). We always include parentheses after a function name (e.g., `ggplot()`).
+- Datasets used throughout the book come from the companion **r02pro** package. Before running any example that uses data, make sure to load the package with `library(r02pro)`.
+- Cross-references to other sections use numbered links (e.g., *Section \@ref(Installation)*).
+
 # Contributing to the Book  {-}
 
 To improve the book, we would like to ask for your help. With your permission, we will be happy to add your name in the Acknowledgment section to show our gratitude. 
@@ -82,8 +122,6 @@ The R session information when compiling this book is shown below.
 sessionInfo()
 ```
 
-
-In the book, package names are in **bold** text (e.g., **r02pro**), and inline codes and functions are formatted in a typewriter font (e.g. `1 + 2`, `r02pro()`). We always add parentheses after a function name (e.g. `r02pro()`).
 
 ```{r, results='asis', echo=FALSE}
 if (knitr::is_latex_output()) cat("\\mainmatter\n")
