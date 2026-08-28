@@ -78,15 +78,19 @@ Chapters 1 through 7 form a sequential foundation — please read them in order.
 
 # Contributing to the Book  {-}
 
-To improve the book, we would like to ask for your help. With your permission, we will be happy to add your name in the Acknowledgment section to show our gratitude. 
+To improve the book, we would like to ask for your help. Every contributor is added to the Acknowledgment section to show our gratitude. Full instructions live in the [contributing guide](https://github.com/r02pro/r02pro_source/blob/main/CONTRIBUTING.md); the short version follows.
 
-### Typos or Grammar Issues {-}
+### Typos, Grammar, or Code Issues {-}
 
-If you find any typos or grammar issues, please feel free to directly click the 'edit' button. This allows you to fork the repository to your GitHub account, make the necessary changes, and then submit a pull request.
+If you find any typos, grammar issues, or code errors, please feel free to directly click the 'edit' button. This allows you to fork the repository to your GitHub account, make the necessary changes, and then submit a pull request. Please check the existing pull requests and issues first so you do not duplicate someone else's report, and keep each pull request focused on one section.
+
+### Problems You Cannot Fix Yourself {-}
+
+For confusing explanations, incorrect output, or suggestions, please [open an issue](https://github.com/r02pro/r02pro_source/issues/new/choose) describing the chapter and section, the problematic text, and your suggested improvement.
 
 ### General Questions or Feedback  {-}
 
-If you have more general questions or feedback about any materials in the book, we greatly appreciate if you can write to us at yang.feng@nyu.edu. 
+If you have more general questions or feedback about any materials in the book, we greatly appreciate if you can write to us at yang.feng@nyu.edu.
 
 
 # Acknowledgement {-}
