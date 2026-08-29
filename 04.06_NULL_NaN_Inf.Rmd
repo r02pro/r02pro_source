@@ -158,7 +158,7 @@ We would like to summarize the different behaviors of the four special values in
 |------------|-------------|-------------|-------------|---------------|
 | `class()`  | `"logical"` | `"NULL"`    | `"numeric"` | `"numeric"`   |
 | `length()` | 1           | 0           | 1           | 1             |
-| check      | `is.na()`   | `is.null()` | `is.nan()`  | `is.finite()` |
+| check      | `is.na()`   | `is.null()` | `is.nan()`  | `is.infinite()` |
 
 ### Exercises
 

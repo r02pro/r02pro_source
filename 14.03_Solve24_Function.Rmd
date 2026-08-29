@@ -13,6 +13,13 @@ for(step in 1:(n_nums-1))
   sol[step + 1] <- cal(sol[step], num[step+1], op[step])
 return(sol)
 }
+# multi-step operations, the "pair" shape (n1 op n2) op (n3 op n4), only for 4 numbers
+num_op_pair <- function(num, op){
+  left <- cal(num[1], num[2], op[1])
+  right <- cal(num[3], num[4], op[2])
+  final <- cal(left, right, op[3])
+  c(left, right, final)
+}
 # print a single step
 print_op <- function(x, y, z, op){
   switch(op, paste(x, "+", y, "=", z)
@@ -31,10 +38,19 @@ print_sol <- function(nums, sol, op){
   cat(print_op(sol[step], nums[step+1], sol[step + 1], op[step]), "\n")
   }
 }
+# print multi-steps for the "pair" shape (n1 op n2) op (n3 op n4)
+print_sol_pair <- function(nums, sol, op){
+  sol <- round(sol, 3)
+  cat(print_op(nums[1], nums[2], sol[1], op[1]), "\n")
+  cat(print_op(nums[3], nums[4], sol[2], op[2]), "\n")
+  cat(print_op(sol[1], sol[2], sol[3], op[3]), "\n")
+}
 ```
 
 
-With all the preparations, we are ready to present the final function to solve 24. In the `solve_24()` function, the first argument `nums` contains the numbers, `goal` is the target value with default 24, and `n_sols_max` represents the maximum number of solutions to search for, with a default value of 3.
+Before assembling the final function, let's check whether the `num_op()` search from Section \@ref(composite-operator) can reach every way of combining four numbers. In `num_op()`, each step combines the running result with the next number, so the four numbers always get combined in the shape `((n1 op n2) op n3) op n4`. But there is another natural way to parenthesize four numbers: combine the first two, combine the last two, and then combine those two results, i.e. `(n1 op n2) op (n3 op n4)`. Consider the input 5, 5, 5, 5. It turns out that $(5 \times 5) - (5 / 5) = 24$, but `num_op()` can never produce this solution, no matter which permutation or operator sequence we try, because it needs two independent two-number results before they are combined. To make sure our solver does not miss solutions like this one, we add a second helper function, `num_op_pair()`, that computes this alternative "pair" shape, together with a matching print function, `print_sol_pair()`. Both simply reuse `cal()` and `print_op()`, the same building blocks we already have.
+
+With all the preparations, we are ready to present the final function to solve 24. In the `solve_24()` function, the first argument `nums` contains the numbers, `goal` is the target value with default 24, and `n_sols_max` represents the maximum number of solutions to search for, with a default value of 3. When there are exactly four input numbers, the function checks both the chain shape (via `num_op()`) and the pair shape (via `num_op_pair()`) for every permutation and operator sequence, since together these two shapes cover every possible way of parenthesizing four numbers.
 ```{r}
 solve_24 <- function(nums, goal = 24, n_sols_max = 3){
 require(gtools)
@@ -50,14 +66,27 @@ for(i in 1:nrow(nums_perm))
 for(j in 1:nrow(op_mat)){ #loop over all possible operator sequences
   num_cur <- nums_perm[i, ] #get the current permutation
   op_cur <- op_mat[j, ] #get the current operator sequence
-  sol <- num_op(num_cur, op_cur) #get the steps
-  if(abs(sol[n_nums] - goal) < 1e-5 & all(sol >= 0)){ #check if it is a solution
+  sol <- num_op(num_cur, op_cur) #get the steps for the chain shape
+  if(isTRUE(abs(sol[n_nums] - goal) < 1e-5 & all(sol >= 0))){ #check if it is a solution
     n_sols <- n_sols + 1 #increase the solution counter
     cat("Solution #", n_sols, "\n")
     print_sol(num_cur, sol, op_cur) #print the solution
-  } 
+  }
   if(n_sols >= n_sols_max){
     return(invisible(NULL))
+  }
+  if(n_nums == 4){ #also check the (n1 op n2) op (n3 op n4) pair shape
+    sol_pair <- num_op_pair(num_cur, op_cur)
+    #isTRUE() guards against NA/NaN, which can arise here (e.g. 0/0)
+    #since left and right are independently computed, unlike the chain shape
+    if(isTRUE(abs(sol_pair[3] - goal) < 1e-5 & all(sol_pair >= 0))){ #check if it is a solution
+      n_sols <- n_sols + 1 #increase the solution counter
+      cat("Solution #", n_sols, "\n")
+      print_sol_pair(num_cur, sol_pair, op_cur) #print the solution
+    }
+    if(n_sols >= n_sols_max){
+      return(invisible(NULL))
+    }
   }
   }
 if(n_sols == 0){ #fail to find a solution
@@ -74,12 +103,15 @@ solve_24(c(1, 5, 5, 5))
 solve_24(c(3, 7, 3, 7))
 solve_24(c(3, 8, 3, 8))
 solve_24(c(2, 5, 5, 5))
+solve_24(c(5, 5, 5, 5))
 ```
+
+The last example, `c(5, 5, 5, 5)`, is exactly the case that motivated adding the pair shape earlier: `solve_24()` now correctly finds $(5 \times 5) - (5 / 5) = 24$, a solution that the chain shape alone could never reach.
 
 Note that the function is more powerful than merely solving 24. It contains two extensions.
 
-1. The target value can be any number, for example, 25, or 100. 
-2. The input can contain more or less than 4 numbers. 
+1. The target value can be any number, for example, 25, or 100.
+2. The input can contain more or less than 4 numbers. Keep in mind that the pair shape only applies when there are exactly 4 numbers; for other input lengths, `solve_24()` searches the chain shape only.
 
 Let's look at two interesting examples.
 ```{r, results=TRUE}

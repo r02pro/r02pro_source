@@ -21,7 +21,7 @@ abline(v = 2000, col = "purple")       ##Add a vertical line at liv_area = 2000
 
 ```{r}
 plot(sahp$liv_area, sahp$sale_price)
-abline(h = 300, col = "blue")         ##Add a horizontal line at sale_price = 2000
+abline(h = 300, col = "blue")         ##Add a horizontal line at sale_price = 300
 ```
 
 Note that the `v` and `h` arguments can also be vectors with more than one values, which will lead to multiple vertical or horizontal lines.  The corresponding argument `col` can also be a vector with multiple values. 

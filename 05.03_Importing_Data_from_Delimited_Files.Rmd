@@ -19,7 +19,7 @@ library(readr)
 gm_small <- read_csv("data/gm_small.csv")
 ```
 
-We can see that there is a message showing the **Column specification** during the import process. In particular, we see `country` is of type *character*, and both `year` and `HDI` are of type *double*. We can also check the value of `gm_small` and its structure.
+We can see that there is a message showing the **Column specification** during the import process. In particular, we see `country`, `gender`, and `continent` are of type character, and `year` is of type double. We can also check the value of `gm_small` and its structure.
 
 ```{r, results=TRUE}
 gm_small
@@ -123,7 +123,7 @@ Let's try to use `read_csv()` instead to check what will you get.
 read_csv("data/gm_small_star.csv")
 ```
 
-You will see that the imported data has only one variable named `country*year*HDI` since the function will interpret the whole thing as a single variable.
+You will see that the imported data has only one variable named `country*year*gender*continent` since the function will interpret the whole thing as a single variable.
 
 ### Import Data Using the Menu {#import-menu}
 

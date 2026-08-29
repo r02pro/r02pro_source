@@ -61,18 +61,18 @@ g + geom_point(stat = "summary",
 
 Of course, you can also add the error bar on top of the other plots like the boxplot or violin plot.
 ```{r}
-g  + geom_point(stat = "summary", 
-                fun = "mean") + 
-  geom_boxplot() +
-  geom_errorbar(stat = "summary", 
-                fun.data = "mean_se", 
+g  + geom_boxplot() +
+  geom_point(stat = "summary",
+                fun = "mean") +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
                 width = 0.2)
 ```
 
 ```{r}
-g  + geom_point(stat = "summary",
+g  + geom_violin() +
+  geom_point(stat = "summary",
                 fun = "mean") +
-  geom_violin() +
   geom_errorbar(stat = "summary",
                 fun.data = "mean_se",
                 width = 0.2)

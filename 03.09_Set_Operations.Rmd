@@ -112,7 +112,7 @@ setequal(x, y)
 is.element(x, y)
 ```
 
-In the example above, `x` and `y` are a numeric vector and a logical vector, respectively. When they become the arguments of set operations, the vector of the simpler type, `y`, is coerced to the more complex type, numeric type in this case. Specifically, `TRUE` is coerced to `1` and `FALSE` is coerced to `0`. This is why you get a value of `0` when performing `intersect()`, when `0` doesn't look like extant in either `x` or `y`. From there, set operations are basically performed on two numeric vectors.
+In the example above, `x` and `y` are a numeric vector and a logical vector, respectively. When they become the arguments of set operations, the vector of the simpler type, `y`, is coerced to the more complex type, numeric type in this case. Specifically, `TRUE` is coerced to `1` and `FALSE` is coerced to `0`. Since `0` isn't in `x`, `intersect(x, y)` is just `1`. This is why you get a value of `0` at the end of `union(x, y)`, since `0` is now a value that appears in the coerced `y` but not in `x`. From there, set operations are basically performed on two numeric vectors.
 
 
 ### Summary

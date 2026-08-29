@@ -61,7 +61,7 @@ head(my_animals_sas)
 ```
 
 ::: {.infobox .caution data-latex="{caution}"}
-SAS has a maximum variable name length of 32 characters. If your R data frame has column names longer than 32 characters, `write_sas()` will truncate them. Make sure to check your column names before exporting to SAS.
+SAS variable names must be at most 32 characters. If any column name in your data frame exceeds this limit, `write_sas()` will throw an error (not silently truncate). Rename long columns with `names()` or `dplyr::rename()` before exporting.
 :::
 
 

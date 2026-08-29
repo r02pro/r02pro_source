@@ -77,7 +77,7 @@ gm_tidy2 %>%
   fill(life_expectancy, .direction = "down")
 ```
 
-From the output, you can see the `life_expectancy` for China in 2005 is 74.2, the same value as the preceding value (the `life_expectancy` for China in 2004). The `life_expectancy` for United States in 2004 is set to be the same as the preceding value (Russia in 2005). Again, it may be more reasonable to group by the country first, arrange by `country` and `year`, and fill in the value with the preceding value for a particular country. 
+From the output, you can see the `life_expectancy` for China in 2005 is 74.2, the same value as the preceding row in the tibble (China in 2006, since the rows are not sorted by year). The `life_expectancy` for United States in 2004 is set to be the same as the preceding value (Russia in 2005). Again, it may be more reasonable to group by the country first, arrange by `country` and `year`, and fill in the value with the preceding value for a particular country. 
 
 ```{r}
 gm_tidy2 %>% 

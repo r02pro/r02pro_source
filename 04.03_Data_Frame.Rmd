@@ -17,7 +17,7 @@ my_data_frame <- data.frame(animal, year, weight, height, condition, healthy)
 my_data_frame
 ```
 
-Looking at the data frame `my_data_frame`, it has 6 columns, each of which represents one variable. The variables are of different types. The `animal` is factor, `year` is integer, both `weight` and `height` are doubles, `condition` is ordered factor, and `healthy` is logical. 
+Looking at the data frame `my_data_frame`, it has 6 columns, each of which represents one variable. The variables are of different types. The `animal` is character, `year` is integer, both `weight` and `height` are doubles, `condition` is ordered factor (because we explicitly called `factor()`), and `healthy` is logical. Note that since R 4.0.0, `data.frame()` no longer automatically converts character vectors into factors.
 
 After creating the data frame, it is useful to examine its class using the `class()` function and structure using the `str()` function. 
 

@@ -100,7 +100,7 @@ knitr::include_graphics("pics/10H3.png")
 
 In addition to the R code, you may be wondering what do the arguments in the big parentheses `{ }` work for. Here, we will introduce a few useful **chunk options** which control the behavior of each code chunk. 
 
-- "r cars" gives the code chunk the name "pressure", which is useful to navigate between different chunks, and it is also necessary to give the code chunk a name if you want to cross reference the corresponding figure in the knitted document.
+- `{r pressure, echo=FALSE}` gives the code chunk the name "pressure", which is useful to navigate between different chunks, and it is also necessary to give the code chunk a name if you want to cross reference the corresponding figure in the knitted document.
 - `eval = FALSE` prevents codes from being evaluated. This is useful when you want to show the code but don't want to run it. Default value is `eval = TRUE`.
 - `include = FALSE` prevents code and results from appearing in the knitted file. The code will still be evaluated. Default value is `include = TRUE`.
 - `echo = FALSE` prevents code, but not the results from appearing in the knitted file. This is useful if you want to embed figures in the document without showing the code used to generate them. Default value is `echo = TRUE`.

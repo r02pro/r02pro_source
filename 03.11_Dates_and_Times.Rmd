@@ -129,7 +129,7 @@ as.Date(c("2010-02-28", "2010/03/28"))
 
 As a precaution, it is recommended that you manually supply the format via the `format` argument and make sure all the elements follow the format.
 
-We can also construct date using the number of days since a reference date using the `origin` argument in the `as_date()` function.
+We can also construct date using the number of days since a reference date using the `origin` argument in the `as.Date()` function.
 ```{r, results=TRUE}
 as.Date(10, origin = "2021-01-01")      #10 days after 2021-01-01
 ```
@@ -214,7 +214,7 @@ format(now, tz = "America/New_York")    #Eastern Standard Time
 format(now, tz = "Europe/London")       #Greenwich Mean Time 
 ```
 
-To create a time object from a character, you can use the `as.POSIXlt()` function with the optional `format` argument. 
+To create a time object from a character, you can use the `as.POSIXct()` function with the optional `format` argument.
 ```{r, results=TRUE}
 as.POSIXct("2021-09-21 13:14:15", format = "%Y-%m-%d %H:%M:%S")
 as.POSIXct("13:14:15, Sep 21, 2021", format = "%H:%M:%S, %b %d, %Y")

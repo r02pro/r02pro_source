@@ -22,7 +22,7 @@ The `str_c()` can also accept vectors of length greater than one as its argument
 str_c("There are", 3:5, c("apples", "bananas", "cherries"), "in the kitchen.", sep = " ") 
 ```
 
-As you can see from the result, the first and third string are recycled to match the length of the second string. 
+As you can see from the result, the first and fourth strings are recycled to match the length of the second (and third) argument.
  
 
 Next, let's introduce how to concatenate the strings inside a chracter vector. First, let's try to apply the `str_c()` function on a character vector.

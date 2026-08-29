@@ -122,7 +122,7 @@ mytheme <- theme(axis.title = element_text(size = 18,
 Then, we can generate the same plot with `mytheme` using
 
 ```{r, eval=FALSE}
-g1 + mytheme
+my_plot_2 + mytheme
 ```
 For a different plot, we can also use the same `mytheme`.
 

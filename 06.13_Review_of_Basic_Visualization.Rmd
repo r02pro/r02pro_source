@@ -18,7 +18,7 @@ Names <- c("Histogram",
            "Boxplot")
 Type  <- c("One continuous variable","(e.g. `cholesterol`)","","","","One discrete variable","(e.g. `kit_qual`)", "Two continuous variables", "(e.g. `sugar` and `cholesterol`)", "","Two discrete variables", "(e.g. `kit_qual` and `heat_qual`)", "One continous varialbe and one discrete variable")
 Funs <- c("`geom_histogram(aes(x = cholesterol))`", "`geom_density(aes(x = cholesterol))`", '`geom_boxplot(aes(x = "", y = sale_price))`',
- "`geom_bar(mapping = aes(x = kit_qual))`",'`geom_bar(aes(x = kit_qual), stat = "identity") + coord_polar("y")` ',
+ "`geom_bar(mapping = aes(x = kit_qual))`",'`geom_bar(aes(x = "", y = prop, fill = kit_qual), stat = "identity") + coord_polar("y")` ',
  "`geom_point(mapping = aes(x = sugar, y = cholesterol))`",
  "`geom_line(mapping = aes(x = dt_sold, y = sale_price))`",
  "`geom_smooth(mapping = aes(x = sugar, y = cholesterol))`",

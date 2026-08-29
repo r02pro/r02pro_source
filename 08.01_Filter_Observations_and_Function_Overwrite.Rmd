@@ -41,7 +41,7 @@ search()
 
 ### Filter Observations
 
-Now, let's introduce how to use `filter()` to get the subset of `gm` which consists of the rows that represent countries in Europe (`continent`), years between 2004 and 2006 (`year`), and very high Human Development Index (`HDI_category`). 
+Now, let's introduce how to use `filter()` to accomplish the task above. As it turns out, there are no European countries with Low `HDI_category` in the `gm` dataset for any year, so that particular combination of conditions would always return zero rows, which is not very informative for illustrating the mechanics of `filter()`. Instead, let's use a similar but different example: get the subset of `gm` which consists of the rows that represent countries in Europe (`continent`), years between 2004 and 2006 (`year`), and very high Human Development Index (`HDI_category`).
 
 To use the `filter()` function, you put the dataset in the first argument, and put the **logical statements** as individual arguments after that. 
 

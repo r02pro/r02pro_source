@@ -9,7 +9,7 @@ $$
 
 ### Generate Multivariate Normal Distribution
 
-To randomly generate ${\bf x} \sim N({\bf \mu}, {\bf \Sigma})$, you can use the `mvrnorm(n = 1, mu, Sigma)` function in the **MASS** package, which is pre-loaded in the base R. The function `mvnorm()` takes three arguments.
+To randomly generate ${\bf x} \sim N({\bf \mu}, {\bf \Sigma})$, you can use the `mvrnorm(n = 1, mu, Sigma)` function in the **MASS** package, which ships with base R but must be loaded explicitly with `library(MASS)`. The function `mvnorm()` takes three arguments.
 
 - `n`: targeted sample size
 - `mu`: mean vector

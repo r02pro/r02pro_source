@@ -6,7 +6,7 @@ In this section, we introduce how to combine music with R via creating **violin 
 
 Let's say we want to generate a basic violin plot for the variable `cholesterol` in the `gm2004` dataset.
 
-```{r, warnings = FALSE}
+```{r, warning = FALSE}
 library(r02pro)
 library(ggplot2)
 ggplot(data = gm2004, 
@@ -15,7 +15,7 @@ ggplot(data = gm2004,
 ```
 
 To introduce the detail of the generation process of violin plot, it is helpful to review the density plot.
-```{r, warnings = FALSE}
+```{r, warning = FALSE}
 ggplot(data = gm2004, 
        aes(y = cholesterol)) +
   geom_density()
@@ -27,7 +27,7 @@ Looking at these two plots, it is easy to see that the basic violin plot is noth
 
 Usually, the violin plot includes the boxplot inside it, providing extra information about the data. To do this, we just add the boxplot layer on top of the violin plot.
 
-```{r, warnings = FALSE}
+```{r, warning = FALSE}
 ggplot(data = gm2004, 
        aes(x = "", y = cholesterol)) + 
   geom_violin() +

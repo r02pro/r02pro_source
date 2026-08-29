@@ -116,8 +116,8 @@ Some common reserved keywords that cannot be used as names are listed below.
 
 ```{r results = TRUE, echo=FALSE}
 knitr::kable(matrix(c("TRUE", "FALSE", "NA", "Inf",
- "NaN", "function", "if", "else", "for", "while",
-  "break", "next", "repeat", "return"), 7, 2))
+ "NaN", "NULL", "function", "if", "else", "for", "while",
+  "break", "next", "repeat"), 7, 2))
 ```
 
 To get a complete list of reserved words, you can run the following code.

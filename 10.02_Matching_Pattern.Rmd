@@ -115,7 +115,7 @@ library(knitr)
 library(kableExtra)
 
 df <- data.frame(
-  Symbol = c("{n}", "{n,}", "{n,m}", "?", "\\+", "\\*"),
+  Symbol = c("{n}", "{n,}", "{n,m}", "?", "+", "*"),
   Description = c(
     "Matches exactly n occurrences of the preceding element.",
     "Matches n or more occurrences.",
@@ -165,10 +165,9 @@ You can combine multiple patterns using logical operators:
 library(kableExtra)
 
 df <- data.frame(
-  Symbol = c("\\|", "&", "()"),
+  Symbol = c("\\|", "()"),
   Description = c(
     "Matches either the pattern on the left or the right (OR).",
-    "Requires both patterns to match (AND).",
     "Groups patterns to control the scope of operators."
   )
 )
@@ -185,23 +184,33 @@ str_view(my_str_comb, "abc|123")    # Matches either 'abc' or '123'
 
 Here, `"abc|123"` indicates that the string should contain either `"abc"` or `"123"`. As a result, `"abc"`, `"123"`, `"abc123"`, `"123abc"`, and `"abc123def"` are matched.
 
-```{r}
-str_view(my_str_comb, "abc&123")    # Matches 'abc' and '123'
-```
-
-Here, `"abc&123"` indicates that the string should contain a substring that matches both `"abc"` and `"123"`, which is impossible. As a result, no matches are found.
+Note that regular expressions do not have a built-in AND operator: there is no symbol that means "this pattern and that pattern must both match." The character `&` is simply a literal ampersand, so a pattern like `"abc&123"` only matches strings that literally contain the substring `"abc&123"`.
 
 ```{r}
-str_view(my_str_comb, "(abc|123)abc")  
+str_view(my_str_comb, "abc&123")    # Matches the literal substring 'abc&123'
 ```
 
-Here, `"(abc|123)abc"` indicates that the string should contain either `"abc"` or `"123"` followed by `"abc"`. As a result, `"abc123"` is matched.
+Here, `"abc&123"` looks for the literal characters `"abc&123"` in a row. Since none of the strings in `my_str_comb` contain a literal `&`, no matches are found. This is not because AND-matching is impossible, but simply because `&` is treated as an ordinary character, not an operator.
+
+If you want to require that a string contains both `"abc"` and `"123"` somewhere (in either order), you can emulate AND using lookaheads.
 
 ```{r}
-str_view(my_str_comb, "abc|123abc") 
+str_view(my_str_comb, "(?=.*abc)(?=.*123)")   # Matches strings containing both 'abc' and '123'
 ```
 
-Here, `"abc|123abc"` indicates that the string should contain either `"abc"` or `"123abc"`. As a result, `"abc"`, `"abc123"`, and `"abc123def"` are matched.
+Here, `(?=.*abc)` is a lookahead that checks the string contains `"abc"` somewhere, and `(?=.*123)` checks it also contains `"123"` somewhere, without consuming any characters. As a result, `"abc123"`, `"123abc"`, and `"abc123def"` are matched. Since lookaheads do not consume characters, `str_view()` highlights an empty match at the start of each matching string.
+
+```{r}
+str_view(my_str_comb, "(abc|123)abc")
+```
+
+Here, `"(abc|123)abc"` indicates that the string should contain either `"abc"` or `"123"` immediately followed by `"abc"`. As a result, `"123abc"` is matched.
+
+```{r}
+str_view(my_str_comb, "abc|123abc")
+```
+
+Here, `"abc|123abc"` indicates that the string should contain either `"abc"` or `"123abc"`. As a result, `"abc"`, `"abc123"`, `"123abc"`, and `"abc123def"` are matched.
 
 Comparing the last two examples, the parentheses `()` are used to group the patterns to control the scope of the operators.
 

@@ -97,7 +97,7 @@ gm_wide <- gm_tidy %>%
 gm_wide
 ```
 
-In the `pivot_wider()` function, you can specify multiple variables in the `names_from` and `values_from` arguments. The resulting tibble `gm_wide` contains the life expectancy and GDP per capita of the United States, China, and Russia from 2004 to 2006. The column names are in the format of `country_year_variable`. Note that we have an extra argument `names_sep` in the `pivot_wider()` function. This argument is used to separate the column names with a hyphen `"-"`. We didn't use the separator `"_"` because it is already used in the column names of the original tibble.
+In the `pivot_wider()` function, you can specify multiple variables in the `names_from` and `values_from` arguments. The resulting tibble `gm_wide` contains the life expectancy and GDP per capita of the United States, China, and Russia from 2004 to 2006. The column names are in the format `variable-country-year` (e.g. `life_expectancy-China-2004`), i.e., the value column name comes first, followed by the `names_from` variables joined with `names_sep`. Note that we have an extra argument `names_sep` in the `pivot_wider()` function. This argument is used to separate the column names with a hyphen `"-"`. We didn't use the separator `"_"` because it is already used in the column names of the original tibble.
 
 To make the tibble tidy, you can use the `pivot_longer()` function. 
 

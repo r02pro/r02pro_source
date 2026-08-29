@@ -30,24 +30,24 @@ gm %>%
          livercancer_newcases = livercancer_newcases_male + livercancer_newcases_female)
 ```
 
-Note that you are free to use any functions on a vector, including all the arithmetic operations and various functions. For example,  to include the order of each country in terms of GDP per capita in the year 2008, you can use `mutate(GDP_order = order(GDP_per_capita))`.  To create a variable as the mean of the `GDP_per_capita`  of all countries, you can add `GDP_per_capita_ave = mean(GDP_per_capita, na.rm = TRUE)` as an argument in the `mutate()` function.
+Note that you are free to use any functions on a vector, including all the arithmetic operations and various functions. For example,  to include the rank of each country in terms of GDP per capita in the year 2008, you can use `mutate(GDP_rank = rank(GDP_per_capita))`.  To create a variable as the mean of the `GDP_per_capita`  of all countries, you can add `GDP_per_capita_ave = mean(GDP_per_capita, na.rm = TRUE)` as an argument in the `mutate()` function.
 
 
 ```{r}
-gm %>% 
+gm %>%
   filter(year == 2008) %>%
-  select(country, year, population, GDP_per_capita) %>% 
-  mutate(GDP_order = order(GDP_per_capita),
+  select(country, year, population, GDP_per_capita) %>%
+  mutate(GDP_rank = rank(GDP_per_capita),
          GDP_per_capita_ave = mean(GDP_per_capita, na.rm = TRUE))
 ```
 
-The `mutate()` function is very powerful in creating new variables. However, if you only want to keep the newly created variables, you can use the `transmute()` function. 
+The `mutate()` function is very powerful in creating new variables. However, if you only want to keep the newly created variables, you can use the `transmute()` function.
 
 ```{r}
-gm %>% 
+gm %>%
   filter(year == 2008) %>%
-  select(country, year, population, GDP_per_capita) %>% 
-  transmute(GDP_order = order(GDP_per_capita),
+  select(country, year, population, GDP_per_capita) %>%
+  transmute(GDP_rank = rank(GDP_per_capita),
             GDP_per_capita_ave = mean(GDP_per_capita, na.rm = TRUE))
 ```
 

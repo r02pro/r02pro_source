@@ -94,7 +94,7 @@ Logical operators like `&` (AND) and `|` (OR) work element-wise on logical vecto
 
 #### Example: Comparing Operators
 
-```{r, results=TRUE}
+```{r, error=TRUE, results=TRUE}
 logi_1 <- c(TRUE, FALSE, TRUE, FALSE)
 logi_2 <- c(FALSE, TRUE, TRUE, FALSE)
 
@@ -103,9 +103,13 @@ logi_1 & logi_2  # Returns c(FALSE, FALSE, TRUE, FALSE)
 logi_1 | logi_2  # Returns c(TRUE, TRUE, TRUE, FALSE)
 
 # First-element-only operations
-logi_1 && logi_2  # Returns FALSE
-logi_1 || logi_2  # Returns TRUE
+# On R < 4.3: uses only the first element, returning FALSE and TRUE
+# On R >= 4.3: raises an error, since logi_1 and logi_2 have length > 1
+logi_1 && logi_2
+logi_1 || logi_2
 ```
+
+On R 4.2 and earlier, the last two lines above return a single logical value computed from just the first element of each vector. Starting with R 4.3.0, the same code raises an error instead, as explained in the caution box below.
 
 ::: {.infobox .caution data-latex="{caution}"}
 **Common pitfall.** Use `&&` and `||` **only** in `if` / `else` conditions, where you need a single `TRUE`/`FALSE` answer. For data operations that should apply to every row of a vector or data frame — such as inside `filter()` — always use the single-character versions `&` and `|`. Writing `filter(df, x == 1 || y == 2)` will silently return the wrong rows because `||` collapses to a single logical value. Write `filter(df, x == 1 | y == 2)` instead.

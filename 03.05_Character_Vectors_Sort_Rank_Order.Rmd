@@ -9,7 +9,11 @@ char_vec <- c("a", "A", "B", "b", "aB","ac", "1c", ".a", "1a","2a",".a","&u","3"
 
 ### Ordering rules {#ordering-rules}
 
-For character vectors, R uses the **lexicographical ordering**, which is sometimes called dictionary order since it is the order used in a dictionary. Note that the strings in character vectors can contain letters, numbers, or symbols. There are a few important ordering rules as follows.
+For character vectors, R uses the **lexicographical ordering**, which is sometimes called dictionary order since it is the order used in a dictionary. Note that the strings in character vectors can contain letters, numbers, or symbols.
+
+Before going further, it is important to know that string sorting in R is **locale-dependent**: the exact ordering rules are governed by the collation locale of your R session, which you can check with `Sys.getlocale("LC_COLLATE")`. The rules and examples in this section assume a typical English locale such as `en_US.UTF-8`, which is the default on most personal computers. If your session instead uses the `C` locale (common on Linux servers, Docker containers, and some classroom setups), results can differ substantially; most notably, all uppercase letters sort before all lowercase letters (e.g., `sort(c(letters, LETTERS))` gives `A B C ... a b c ...` instead of interleaving cases), and symbols sort in raw ASCII order rather than the sequence shown below. If the code in this section produces different output than shown, check your locale first before assuming something is wrong.
+
+There are a few important ordering rules as follows.
 
 - symbols < digits < letters: symbols appear first, followed by digits, and letters appear last.
 
@@ -71,7 +75,7 @@ sort(char_vec, decreasing = TRUE)
 
 ### Get ranks in vectors with `rank()`
 
-The same ordering rules introduced in subsection \@ref(ordering-rules) do apply when R ranks a character vector's strings. Here, the element with rank 1 is `_4` and `.a` has rank 2. Just like numeric vectors, if you have strings with the same value (i.e., characters) in character vectors, these elements' ranks will be the same (the average of the corresponding ranks) by default. 
+The same ordering rules introduced in subsection \@ref(ordering-rules) do apply when R ranks a character vector's strings. Here, the element with rank 1 is `_4` and `.a` has rank 2.5 (the average of ranks 2 and 3, since there are two tied `.a` elements). Just like numeric vectors, if you have strings with the same value (i.e., characters) in character vectors, these elements' ranks will be the same (the average of the corresponding ranks) by default.
 
 ```{r results = TRUE}
 rank(char_vec)

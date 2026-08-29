@@ -33,7 +33,7 @@ Operation  <- c("Re(z)", "Im(z)", "Mod(z)",
                 "Arg(z)", "Conj(z)")
 Explanation <- c("the real part", "the imaginary part", "the modulus", "the argument", "the conjugate vector")
 Values <- c("$x$", "$y$", "$\\sqrt{x^2 + y^2}$",
-            "$arccos(\\frac{x}{\\sqrt{x^2 + y^2}})$", "$x - i y$")
+            "$arccos(\\frac{x}{\\sqrt{x^2 + y^2}})$ if $y \\ge 0$; $-arccos(\\frac{x}{\\sqrt{x^2 + y^2}})$ if $y < 0$", "$x - i y$")
 d <- data.frame(Operation, Explanation, Values)
 knitr::kable(d)
 ```
@@ -116,7 +116,7 @@ r02pro_raw
 rawToChar(r02pro_raw)
 ```
 
-For example, the character `I` corresponds to raw value 49, and number 111, the space corresponds to raw value 20, and number 32, and the `!` corresponds to raw value 21, and number 33. 
+For example, the character `I` corresponds to raw value 49, and number 73, the space corresponds to raw value 20, and number 32, and the `!` corresponds to raw value 21, and number 33.
 
 Now, let's try something interesting.
 ```{r, results=TRUE}

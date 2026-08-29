@@ -77,11 +77,11 @@ head(op_mat, 10)
 Let's look at some possible row for the example `(1, 5, 5, 5)`.
 
 ```{r echo = FALSE, results = TRUE}
-Operator_Seq  <- c("1, 2, 3","5, 3, 4","6, 2, 1")
+Operator_Seq  <- c("1, 2, 3","4, 5, 3","6, 2, 1")
 Step1 <- c("1 + 5", "1 / 5", "5 / 1")
 Step2 <- c("(1 + 5) - 5", "5 - 1 / 5", "5/1 - 5")
-Step3 <- c("((1 + 5) - 5)*2", "(5 - 1 / 5)*5", "5/1 - 5 + 5")
-Value <- c(((1 + 5) - 5)*2, (5 - 1 / 5)*5, 5/1 - 5 + 5)
+Step3 <- c("((1 + 5) - 5) * 5", "(5 - 1 / 5) * 5", "5/1 - 5 + 5")
+Value <- c(((1 + 5) - 5) * 5, (5 - 1 / 5) * 5, 5/1 - 5 + 5)
 d <- data.frame(Operator_Seq, Step1, Step2, Step3, Value)
 knitr::kable(d)
 ```
