@@ -51,9 +51,9 @@ rank(x, ties.method = "first")
 ```
 
 ::: {.infobox .caution data-latex="{caution}"}
-Unlike `sort()`, you can't get positions in the descending order from the `rank()` function by adding `decreasing = TRUE` in `rank()`. However, you can achieve this goal by using `sort(-x)` if you want to get the positions in the descending order for vector `x`.
+Unlike `sort()`, you can't get positions in the descending order from the `rank()` function by adding `decreasing = TRUE` in `rank()`. However, you can achieve this goal by using `rank(-x)` if you want to get the positions in the descending order for vector `x`.
 ```{r}
-sort(-x)
+rank(-x)
 ```
 :::
 
