@@ -94,10 +94,13 @@ As expected, you can also view the newly assigned values of `z1` in the environm
 knitr::include_graphics("pics/2en2.png")
 ```
 
-Finally, you can use the `vector(mode, length)` function to create a vector of certain `mode` and `length`. 
+Finally, you can use the `vector(mode, length)` function to create a numeric vector of certain length. 
+
 ```{r}
 vector("numeric", 4)
 ```
+
+Note that the default value is `0` for all elements.
 
 
 ### Operations and recycling rule {#operation-recycling}

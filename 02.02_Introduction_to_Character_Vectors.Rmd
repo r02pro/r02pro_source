@@ -16,13 +16,13 @@ class("book")
 
 As you can see, the length of the character vector is 1, which means it contains only one element. The `class()` function returns `character`, indicating that this is a character vector.
 
-Next, let's assign the value of `"book"` to a name (say `r02pro`) using the assignment operator `<-`. This is how you create a character vector with a name. 
+Next, let's assign the value of `"book"` to a name (say `book_vec`) using the assignment operator `<-`. This is how you create a character vector with a name. 
 
 
 ```{r}
-r02pro <- "book"
-r02pro
-class(r02pro)
+book_vec <- "book"
+book_vec
+class(book_vec)
 ```
 
 
@@ -65,7 +65,7 @@ length(animals)
 nchar(animals)
 ```
 
-As shown in the example, we can see that there are three elements in the `animals` vector, and string "sheep%29" has a length of 8 (including 5 characters, 1 symbol, and 2 numbers). Similarly, "bear$11" and "monkey@66" have a length of 7 and 9, and you can check it by yourself with the `nchar()` function. 
+As shown in the example, we can see that there are three elements in the `animals` vector, so `length(animals)` is 3. The string "sheep%29" has 8 characters (5 letters, 1 symbol, and 2 digits). Similarly, "bear$11" and "monkey@66" have 7 and 9 characters, and you can check it by yourself with the `nchar()` function. 
 
 Same as the numeric vector, you can use the `typeof()` function to find the internal storage type of a character vector. All the character vectors will be stored as the **character** in R. You can check the storage type of some character vectors we created before.
 
