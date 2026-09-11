@@ -14,7 +14,7 @@ always_allow_html: true
 ---
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
-  comment = "#>", echo = TRUE, eval = TRUE, results = FALSE, error = TRUE, fig.width = 6, warning = FALSE, collapse = TRUE, tidy=TRUE
+  comment = "#>", echo = TRUE, eval = TRUE, results = TRUE, error = TRUE, fig.width = 6, warning = FALSE, collapse = TRUE, tidy=TRUE
 )
 ```
 

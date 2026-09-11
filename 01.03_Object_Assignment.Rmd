@@ -4,11 +4,6 @@
 rm(list=ls())
 ```
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(
-  comment = "#>", echo = TRUE, eval = TRUE, results = FALSE, error = TRUE, fig.width = 6, warning = FALSE, collapse = TRUE)
-```
-
 In the last section, you saw how R handles one-off calculations. To carry out a full analysis, though, you almost always need to preserve the output from one step so you can use it again later.
 
 Consider the following three calculations, each of which repeats the expression `exp(3) / log(20, 3) * 7`.

@@ -5,11 +5,6 @@ Having learning numeric vectors (Section \@ref(intro-num-vector)) and character 
 ### Logical vectors: creation by comparisons, class, and storage type{#create-logical-vector} 
 
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(
-  comment = "#>", echo = TRUE, eval = TRUE, results = FALSE, error = TRUE, fig.width = 6, warning = FALSE, collapse = TRUE)
-```
-
 A **logical vector** is an atomic vector containing only **logical values**, mostly `TRUE` and `FALSE`. Logical vectors are most omnipresent when we check whether a comparison statement is true or false. Generally,  comparisons are more common between numeric vectors since it is easy to compare numbers so that we will take the comparisons between numeric vectors as examples in this section. 
 
 For two length-1 vectors, the comparison is simply done between the only element of each vector. Let's create a numeric vector `x` with value `3`, and then compare it with `2` and `1`. (Here `2` and `1` are both length-1 numeric vectors) 
