@@ -5,7 +5,7 @@ After creating a numeric vector, we usually need to arrange (sort) the elements 
 
 First, let's create a numeric vector to be used throughout this section.
 
-```{r}
+```{r results = TRUE}
 x <- c(2, 3, 2, 0, 4, 7)
 x #check the value of x
 ```
@@ -20,7 +20,7 @@ sort(x)
 
 If you want to sort the vector in the **descending** order, namely from the largest to smallest, you can add a second argument `decreasing = TRUE`.
 
-```{r}
+```{r results = TRUE}
 sort(x, decreasing = TRUE)
 ```
 
@@ -51,8 +51,8 @@ rank(x, ties.method = "first")
 ```
 
 ::: {.infobox .caution data-latex="{caution}"}
-Unlike `sort()`, you can't get positions in the descending order from the `rank()` function by adding `decreasing = TRUE` in `rank()`. However, you can achieve this goal by using `rank(-x)` if you want to get the positions in the descending order for vector `x`.
-```{r}
+Unlike `sort()`, you can't get ranks in the descending order from the `rank()` function by adding `decreasing = TRUE` in `rank()`. However, you can achieve this goal by using `rank(-x)` if you want to get the ranks in the descending order for vector `x`.
+```{r results = TRUE}
 rank(-x)
 ```
 :::
@@ -73,7 +73,7 @@ sort(x)
 
 From the result, you can see that the `order()` function returns **indices** for the elements in the **ascending** order, namely from the smallest to the largest. For example, the first output is 4, since the 4th element in `x` is the smallest. The second output is 1, since the 1st element in `x` is the second smallest. In other words, `order()` returns a **permutation** which rearranges the vector `x` into ascending order, which is shown in the following example.
 
-```{r}
+```{r results = TRUE}
 x[order(x)]
 ```
 
@@ -84,7 +84,7 @@ Unlike `rank()`, the `order()` function breaks the ties by the appearing order b
 
 If you want the indices corresponding to the descending order, then you can set `decreasing = TRUE` just like what we did in the `sort()` function. 
 
-```{r}
+```{r results = TRUE}
 order(x, decreasing = TRUE)  
 ```
 
