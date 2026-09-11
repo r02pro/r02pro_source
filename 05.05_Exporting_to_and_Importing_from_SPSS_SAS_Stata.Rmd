@@ -29,7 +29,7 @@ my_animals
 
 The data frame `my_animals` will be used as in Section \@ref(export-data). You can use the function `write_sav()` to export a data frame into a SPSS .sav file.
 
-```{r, eval=FALSE}
+```{r}
 write_sav(my_animals, "data/my_animals.sav")
 ```
 
@@ -49,7 +49,7 @@ You may notice that the imported data has additional type information (e.g., `<c
 
 You can use the function `write_sas()` to export a data frame into a SAS .sas7bdat file.
 
-```{r, eval=FALSE}
+```{r}
 write_sas(my_animals, "data/my_animals.sas7bdat")
 ```
 
@@ -69,7 +69,7 @@ SAS variable names must be at most 32 characters. If any column name in your dat
 
 Lastly, let's talk about Stata files. You can use the function `write_dta()` to export a data frame into a Stata .dta file.
 
-```{r, eval=FALSE}
+```{r}
 write_dta(my_animals, "data/my_animals.dta")
 ```
 

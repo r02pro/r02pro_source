@@ -20,7 +20,7 @@ ls()
 
 In R, you can use the function `save()` to save one or more objects into an .RData file. Note that you want to make sure to change the working directory as needed. Let's see the following example where we save the object `dig_num` into a file named "dig_num.RData".
 
-```{r, eval=FALSE}
+```{r}
 save(dig_num, file = "data/dig_num.RData")
 ```
 
@@ -42,14 +42,14 @@ You can verify from the value of `dig_num` that we have successfully restored th
 
 To save more than one objects into a single file, you just need to enter them as additional arguments in the `save()` function.
 
-```{r, eval=FALSE}
+```{r}
 save(dig_num, ani_char, 
      file = "data/dig_num_and_ani_char.RData")
 ```
 
 To save everything in the workspace, you can use the function `save.image()` with the desired file name in double quotes as the argument. 
 
-```{r, eval=FALSE}
+```{r}
 save.image("data/all.RData")
 ```
 
@@ -79,7 +79,7 @@ We can see that the value of  `dig_num` was indeed silently *overwritten* by the
 
 To avoid this issue, another pair of functions to save and restore a single object is `saveRDS()` and `readRDS()`. The usage of `saveRDS()` is almost identical to `save()` except we usually use a file with extension ".rds" to store the object. 
 
-```{r, eval=FALSE}
+```{r}
 saveRDS(dig_num, file = "data/dig_num.rds")
 ```
 
@@ -104,7 +104,7 @@ For this reason, you are recommended to use the function pair `saveRDS()` and `r
 
 While `save()` and `load()` may be simpler to use when saving and loading multiple objects, you want to be extremely careful with the overwriting issues we discussed here. In fact, you can also use `saveRDS()` and `readRDS()` for multiple objects if you create a list containing all the objects. 
 
-```{r, eval = FALSE}
+```{r}
 saveRDS(list(dig_num = dig_num, ani_char = ani_char), file = "data/multi.rds")
 ```
 

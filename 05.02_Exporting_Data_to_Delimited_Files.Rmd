@@ -28,7 +28,7 @@ getwd()
 
 For illustration purposes, we will create a folder called "data" using the function `dir.create()` under the current working directory and export/import to/from files in this folder. 
 
-```{r, eval=FALSE}
+```{r}
 dir.create("data")
 ```
 
@@ -60,7 +60,7 @@ gm_small
 
 Now, let's write the data frame `gm_small` into a file called "gm_small.csv" in the currently working directory. To write an object into a .csv file, you can use the `write_csv()` function in the **readr** package. Since **readr** is a sub-package of **tidyverse**, you can load the package directly if the **tidyverse** package is installed.
 
-```{r, eval=FALSE}
+```{r}
 library(readr)
 write_csv(gm_small, "data/gm_small.csv")
 ```
@@ -75,13 +75,13 @@ knitr::include_graphics("pics/4.2_csv_content.jpg")
 
 We can see that all the information has been exported to the .csv file, with *commas* separating the values on each observation. In particular, you may find out the first row of the file corresponds to the column names. If you don't want to include the column names, you can set the argument `col_names = FALSE`. 
 
-```{r, eval=FALSE}
+```{r}
 write_csv(gm_small, "data/gm_small_no_colname.csv", col_names = FALSE)
 ```
 
 By default, `write_csv()` writes the data into a file in which `NA` is used to represent all the missing values, just like in a tibble. If you want to use another string to represent the missing values in the file, you can set the argument `na` to be the string.
 
-```{r, eval=FALSE}
+```{r}
 write_csv(gm_small, "data/gm_small_missing.csv", na = "This value is missing!")
 ```
 
@@ -89,7 +89,7 @@ write_csv(gm_small, "data/gm_small_missing.csv", na = "This value is missing!")
 
 As introduced at the beginning, there are different types of *delimited files*, depending on the specific *delimiter* of your choice. The function `write_delim()` enables us to write an object into a delimited file with any chosen delimiter. The usage of `write_delim()` is almost identical to `write_csv()`, except that it has an additional argument `delim`, which specifies the delimiter to be used. Let's see the following example with `*` as the delimiter. 
 
-```{r, eval=FALSE}
+```{r}
 write_delim(gm_small, "data/gm_small_star.csv", delim = "*")
 ```
 

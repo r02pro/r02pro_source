@@ -12,7 +12,7 @@ install.packages("writexl")
 
 Now, we can load the **writexl** package and use the `write_xlsx()` function to write data into an Excel file with extension .xlsx. Let's first load the data from "gm_small.csv" and write it to "gm_small.xlsx". 
 
-```{r, eval = FALSE}
+```{r}
 library(writexl)
 library(readr)
 gm_small <- read_csv("data/gm_small.csv")
@@ -23,7 +23,7 @@ By default, the column names of the data frame/tibble will be written to the fir
 
 In addition to writing a single data frame to an Excel file, `write_xlsx()` can also write **multiple data frames** into a single Excel file, with each Excel sheet containing one data frame. To do that, you need to supply a list of data frames as the first argument in `write_xlsx()`.  Let's take a look at the following example which write both `gm_small` and `sahp` (a tibble in the **r02pro** package introduced in Section \@ref(sahp)) into an Excel file named "two_data.xlsx".
 
-```{r, eval=FALSE}
+```{r}
 library(r02pro)
 two_data <- list(gapminder = gm_small, sahp = sahp)
 write_xlsx(two_data, "data/two_data.xlsx")
