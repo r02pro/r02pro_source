@@ -44,7 +44,11 @@ jobs:
           install.packages(c(
             "bookdown", "tidyverse", "r02pro", "plotly",
             "kableExtra", "MASS", "purrr", "glue", "gtools",
-            "writexl", "readxl", "knitr", "rmarkdown"
+            "writexl", "readxl", "knitr", "rmarkdown",
+            # attached directly by the book. Both arrive today as dependencies
+            # of tidyverse and plotly, but the book calls library() on them, so
+            # declare them rather than depend on someone else's Imports.
+            "haven", "htmlwidgets"
           ))
         shell: Rscript {0}
 
